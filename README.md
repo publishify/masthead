@@ -30,6 +30,15 @@ Scripts do the routine work without spending tokens: measuring, quote checks, fr
 
 The AI that reads your book runs on your own Claude account. Your full text and section summaries stay on your computer. Only editorial notes, quotes of up to 25 words and counts reach the Masthead server, which runs no AI. See the [privacy policy](https://publishify.app/privacy/).
 
+## What this plugin runs and connects to
+
+- **On your computer:** a Node.js script (`scripts/bin/masthead.mjs`) reads your book, runs the review and draws the dashboard. It calls the `claude` command for each reading, with all tools turned off.
+- **Files it writes:** a `.masthead` folder and `masthead-dashboard.html` next to your book, and your sign-in and interface translations in `~/.config/masthead`.
+- **The Masthead server (`mcp.publishify.app`):** handles Google sign-in and your licence, gives the reading instructions step by step, and receives editorial notes, quotes of up to 25 words, counts, and your book's title and section details. It never receives your full text.
+- **Your browser:** opens once for sign-in, and opens the finished report.
+
+The licence is linked to the email address of your Google account.
+
 ## Install, step by step
 
 No programming needed. You will paste a few lines and press Enter.
