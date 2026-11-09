@@ -906,6 +906,30 @@ async function verify(file) {
   }
   print(result);
 }
+function checkNotes(file, defaultUnit) {
+  const output = JSON.parse(readFileSync2(file, "utf-8"));
+  const textOf = (unit) => readFileSync2(unitPath(unit), "utf-8");
+  const found = (place) => {
+    const unit = place.unit ?? defaultUnit;
+    if (!unit || !place.quote || !existsSync(unitPath(unit))) return false;
+    const status = findQuote(textOf(unit), place.quote).status;
+    return status === "found" || status === "ambiguous";
+  };
+  return Promise.all(
+    (output.notes ?? []).map(async (note) => {
+      const unit = note.unit ?? defaultUnit;
+      const located = unit ? { unit } : {};
+      if (!note.quote) return { ...note, ...located };
+      const proven = found(note) && (note.evidence ?? []).every(found);
+      return {
+        ...note,
+        ...located,
+        ...unit && existsSync(unitPath(unit)) ? { unit_hash: await hash(textOf(unit)) } : {},
+        verification: proven ? { method: "script", verified_by: "text-tool" } : { method: "model" }
+      };
+    })
+  ).then((notes) => ({ notes, stages: output.stages ?? [] }));
+}
 async function main([command, ...args]) {
   if (command === "prepare" && args[0]) {
     const i2 = args.indexOf("--genre");
@@ -930,6 +954,10 @@ async function main([command, ...args]) {
     );
   }
   if (command === "verify" && args[0]) return verify(args[0]);
+  if (command === "check" && args[0]) {
+    const unit = option(args, "--unit");
+    return print(await checkNotes(args[0], unit ? Number(unit) : void 0));
+  }
   if (command === "render" && args[0]) {
     const target = option(args, "--output") || "masthead-dashboard.html";
     const lang = languageOf(args);
@@ -954,7 +982,7 @@ async function main([command, ...args]) {
     return print({ lang, saved: Object.keys(strings).length, rejected });
   }
   throw new Error(
-    "Usage: prepare <file> --genre <genre> | unit <no> | measure | verify <file> | render <data.json> --output <file> [--lang <tag>] | strings <data.json> [--lang <tag>] | save-strings <file> [--lang <tag>]"
+    "Usage: prepare <file> --genre <genre> | unit <no> | measure | verify <file> | check <file> [--unit <no>] | render <data.json> --output <file> [--lang <tag>] | strings <data.json> [--lang <tag>] | save-strings <file> [--lang <tag>]"
   );
 }
 main(process.argv.slice(2)).catch((e) => {

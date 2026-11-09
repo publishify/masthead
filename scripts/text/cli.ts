@@ -70,6 +70,38 @@ async function verify(file: string) {
   print(result);
 }
 
+type Place = { unit?: number; quote?: string };
+type RoleNote = Place & { evidence?: Place[]; [key: string]: unknown };
+
+/** A note is proven only when every quote it relies on is found in the book. */
+function checkNotes(file: string, defaultUnit?: number) {
+  const output = JSON.parse(readFileSync(file, "utf-8")) as {
+    notes?: RoleNote[];
+    stages?: Place[];
+  };
+  const textOf = (unit: number) => readFileSync(unitPath(unit), "utf-8");
+  const found = (place: Place) => {
+    const unit = place.unit ?? defaultUnit;
+    if (!unit || !place.quote || !existsSync(unitPath(unit))) return false;
+    const status = findQuote(textOf(unit), place.quote).status;
+    return status === "found" || status === "ambiguous";
+  };
+  return Promise.all(
+    (output.notes ?? []).map(async (note) => {
+      const unit = note.unit ?? defaultUnit;
+      const located = unit ? { unit } : {};
+      if (!note.quote) return { ...note, ...located };
+      const proven = found(note) && (note.evidence ?? []).every(found);
+      return {
+        ...note,
+        ...located,
+        ...(unit && existsSync(unitPath(unit)) ? { unit_hash: await hash(textOf(unit)) } : {}),
+        verification: proven ? { method: "script", verified_by: "text-tool" } : { method: "model" },
+      };
+    }),
+  ).then((notes) => ({ notes, stages: output.stages ?? [] }));
+}
+
 async function main([command, ...args]: string[]) {
   if (command === "prepare" && args[0]) {
     const i = args.indexOf("--genre");
@@ -94,6 +126,10 @@ async function main([command, ...args]: string[]) {
     );
   }
   if (command === "verify" && args[0]) return verify(args[0]);
+  if (command === "check" && args[0]) {
+    const unit = option(args, "--unit");
+    return print(await checkNotes(args[0], unit ? Number(unit) : undefined));
+  }
   if (command === "render" && args[0]) {
     const target = option(args, "--output") || "masthead-dashboard.html";
     const lang = languageOf(args);
@@ -119,7 +155,7 @@ async function main([command, ...args]: string[]) {
     return print({ lang, saved: Object.keys(strings).length, rejected });
   }
   throw new Error(
-    "Usage: prepare <file> --genre <genre> | unit <no> | measure | verify <file> | render <data.json> --output <file> [--lang <tag>] | strings <data.json> [--lang <tag>] | save-strings <file> [--lang <tag>]",
+    "Usage: prepare <file> --genre <genre> | unit <no> | measure | verify <file> | check <file> [--unit <no>] | render <data.json> --output <file> [--lang <tag>] | strings <data.json> [--lang <tag>] | save-strings <file> [--lang <tag>]",
   );
 }
 

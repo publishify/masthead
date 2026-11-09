@@ -17,3 +17,16 @@ describe("plugin package", () => {
     expect(TOOLS).toHaveLength(5);
   });
 });
+
+describe("plugin instructions", () => {
+  const files = [
+    "agents/board-worker.md",
+    "commands/review.md",
+    "commands/status.md",
+    "skills/editorial-board/SKILL.md",
+  ];
+
+  it.each(files)("%s starts with a valid header", (file) => {
+    expect(readFileSync(file, "utf-8")).toMatch(/^---\n[a-z-]+: .+\n[\s\S]*?\n---\n/);
+  });
+});

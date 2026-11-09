@@ -16,6 +16,14 @@
     }
   },
   "files": {
-    "includes": ["**", "!scripts/bin", "!scripts/dashboard/template.html", "!test/fixtures"]
+    "includes": [
+      "**",
+      "!scripts/bin",
+      "!scripts/dashboard/template.html",
+      "!test/fixtures",
+      "!agents/**/*.md",
+      "!commands/**/*.md",
+      "!skills/**/*.md"
+    ]
   }
 }
