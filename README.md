@@ -43,7 +43,7 @@ Open Claude in the folder that holds your book, then run:
 /masthead:status
 ```
 
-A browser opens once for sign-in with Google. Supported files are `.md`, `.txt` and `.docx`. The report is saved as `masthead-dashboard.html` in the same folder.
+A browser opens once for sign-in with Google. Supported files are `.md`, `.txt`, `.docx` and `.epub` without copy protection. The report is saved as `masthead-dashboard.html` in the same folder.
 
 AI can make mistakes, so read every note with your own judgement.
 

@@ -463,7 +463,7 @@ var words = (text) => text.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) ?? 
 
 // scripts/text/formats.ts
 import { readFileSync as readFileSync2 } from "node:fs";
-import { extname } from "node:path";
+import { extname, posix } from "node:path";
 
 // node_modules/.pnpm/fflate@0.8.3/node_modules/fflate/esm/index.mjs
 import { createRequire } from "module";
@@ -985,6 +985,51 @@ function readDocx(data) {
   }
   return { text: ps.join("\n\n"), headings, extractor: "docx@1" };
 }
+var normalize = (path) => posix.normalize(path);
+var attr = (tag, name) => new RegExp(`\\b${name}\\s*=\\s*["']([^"']*)["']`, "i").exec(tag)?.[1];
+function readEpub(data) {
+  const files = unzipSync(data);
+  const read = (name) => files[name] ? strFromU8(files[name]) : void 0;
+  const encryption = read("META-INF/encryption.xml");
+  if (encryption && !/obfuscation|font/i.test(encryption)) {
+    throw new TextError("FORMAT_UNSUPPORTED", "This EPUB is protected and cannot be read.");
+  }
+  const root = attr(read("META-INF/container.xml") ?? "", "full-path");
+  const opf = root ? read(root) : void 0;
+  if (!root || !opf) throw new TextError("FORMAT_UNSUPPORTED", "The EPUB could not be read.");
+  const base = root.includes("/") ? root.slice(0, root.lastIndexOf("/") + 1) : "";
+  const items = /* @__PURE__ */ new Map();
+  for (const [tag] of opf.matchAll(/<item\s[^>]*>/gi)) {
+    const id = attr(tag, "id");
+    const href = attr(tag, "href");
+    if (id && href && !/\bnav\b/i.test(attr(tag, "properties") ?? "")) items.set(id, href);
+  }
+  const ps = [];
+  const headings = [];
+  for (const [tag] of opf.matchAll(/<itemref\s[^>]*>/gi)) {
+    if (attr(tag, "linear") === "no") continue;
+    const href = items.get(attr(tag, "idref") ?? "");
+    const page = href ? read(normalize(base + decodeURIComponent(href))) : void 0;
+    if (!page) continue;
+    const body = page.replace(/<(head|script|style)\b[\s\S]*?<\/\1>/gi, "");
+    const first = ps.length;
+    let hasHeading = false;
+    for (const m of body.matchAll(/<(h[1-6]|p|li|blockquote)\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
+      const text = decode(
+        String(m[2]).replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]+>/g, "")
+      ).trim();
+      if (!text) continue;
+      if (/^h[1-6]$/i.test(String(m[1]))) {
+        headings.push(ps.length);
+        hasHeading = true;
+      }
+      ps.push(text);
+    }
+    if (!hasHeading && ps.length > first) headings.push(first);
+  }
+  if (ps.length === 0) throw new TextError("FORMAT_UNSUPPORTED", "The EPUB has no readable text.");
+  return { text: ps.join("\n\n"), headings, extractor: "epub@1" };
+}
 function readPlainText(content, stripYaml) {
   let text = content.replace(/^﻿/, "");
   if (stripYaml) text = text.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "");
@@ -995,6 +1040,7 @@ function readFile(path) {
   if (extension === ".md") return readPlainText(readFileSync2(path, "utf-8"), true);
   if (extension === ".txt") return readPlainText(readFileSync2(path, "utf-8"), false);
   if (extension === ".docx") return readDocx(readFileSync2(path));
+  if (extension === ".epub") return readEpub(readFileSync2(path));
   throw new TextError("FORMAT_UNSUPPORTED", `This file format is not supported yet: ${extension}`);
 }
 
