@@ -1,0 +1,29 @@
+{
+  "name": "masthead-plugin",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Publishify Masthead: your AI editorial board.",
+  "type": "module",
+  "packageManager": "pnpm@12.18.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "test": "vitest run",
+    "check": "pnpm build && pnpm typecheck && pnpm lint && pnpm test",
+    "build": "esbuild scripts/text/cli.ts --bundle --platform=node --format=esm --target=node20 --outfile=scripts/bin/masthead.mjs --loader:.html=text --log-level=warning"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.6",
+    "@types/node": "26.6.6",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "fflate": "0.8.3"
+  }
+}
