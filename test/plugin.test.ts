@@ -27,6 +27,6 @@ describe("plugin instructions", () => {
   ];
 
   it.each(files)("%s starts with a valid header", (file) => {
-    expect(readFileSync(file, "utf-8")).toMatch(/^---\n[a-z-]+: .+\n[\s\S]*?\n---\n/);
+    expect(readFileSync(file, "utf-8")).toMatch(/^---\n[a-z-]+: .+\n(?:[\s\S]*?\n)?---\n/);
   });
 });
