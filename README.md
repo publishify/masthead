@@ -11,7 +11,7 @@
 In Claude Code:
 
 ```
-/plugin marketplace add publishify/masthead-plugin
+/plugin marketplace add publishify/masthead
 /plugin install masthead@publishify
 ```
 
