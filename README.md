@@ -12,7 +12,7 @@ Masthead reads your book the way a publishing house staff would, gives notes bac
 
 > **Early access.** Masthead needs a licence. Write to info@publishify.app to request one.
 
-[Türkçe kurulum rehberi](docs/install.tr.md)
+Install guide: [English](docs/install.md) · [Türkçe](docs/install.tr.md)
 
 ## What you get
 

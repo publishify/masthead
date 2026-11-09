@@ -67,3 +67,5 @@ Dosya adını kendi kitabınla değiştir. İlk seferde tarayıcı açılır: **
 | Kullanım sınırında duruyor | Sınır yenilenince aynı komutu çalıştır; biten iş tekrarlanmaz |
 
 Yapay zekâ hata yapabilir; her notu kendi yargınla oku.
+
+[English](install.md)
