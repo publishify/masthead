@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "masthead": {
-      "type": "http",
-      "url": "https://mcp.publishify.app/mcp"
-    }
-  }
-}

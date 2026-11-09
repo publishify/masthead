@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { TOOLS } from "../shared/tools";
 
@@ -10,7 +10,8 @@ describe("plugin package", () => {
 
   it("does not contain any role cards", () => {
     expect(existsSync("cards")).toBe(false);
-    expect(readdirSync("agents").filter((f) => f.endsWith(".md")).length).toBeLessThanOrEqual(1);
+    const bundle = readFileSync("scripts/bin/masthead.mjs", "utf-8");
+    expect(bundle).not.toContain("You read one section of the book once");
   });
 
   it("knows the five server tools", () => {
@@ -19,12 +20,7 @@ describe("plugin package", () => {
 });
 
 describe("plugin instructions", () => {
-  const files = [
-    "agents/board-worker.md",
-    "commands/review.md",
-    "commands/status.md",
-    "skills/editorial-board/SKILL.md",
-  ];
+  const files = ["commands/review.md", "commands/status.md"];
 
   it.each(files)("%s starts with a valid header", (file) => {
     expect(readFileSync(file, "utf-8")).toMatch(/^---\n[a-z-]+: .+\n(?:[\s\S]*?\n)?---\n/);

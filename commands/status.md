@@ -1,7 +1,6 @@
 ---
 description: Show the latest editorial board report for this book.
+model: haiku
 ---
 
-Read `.masthead/book.json` for the book id. Call the Masthead `read_report` tool with that `book_id`.
-
-Tell the author in plain words, in the language they use with you, when the report was made and what its main decisions are. Never give a verdict on the book. If there is no `.masthead/book.json` or no report yet, say so and suggest `/masthead:review`.
+Run `node "${CLAUDE_PLUGIN_ROOT}/scripts/bin/masthead.mjs" status` with the Bash tool. In plain words and the author's language, say when the report was made and what its `decisions` are. Never give a verdict on the book. If it printed an error, say there is no report yet and suggest `/masthead:review`.

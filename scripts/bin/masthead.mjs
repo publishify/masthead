@@ -1,6 +1,6 @@
 // scripts/text/cli.ts
-import { existsSync, mkdirSync, readFileSync as readFileSync2, rmSync, writeFileSync } from "node:fs";
-import { join, resolve as resolve2 } from "node:path";
+import { existsSync as existsSync2, mkdirSync as mkdirSync2, readFileSync as readFileSync3, rmSync, writeFileSync as writeFileSync2 } from "node:fs";
+import { join as join2, resolve as resolve2 } from "node:path";
 
 // shared/types.ts
 var GENRES = [
@@ -104,6 +104,314 @@ function renderHtml(data, template, ui) {
 // scripts/dashboard/template.html
 var template_default = '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Publishify Masthead \xB7 Dashboard</title>\n<style>\n:root{--ink:#193e33;--green:#1c5145;--paper:#faf4e6;--line:#d9dfd5;--muted:#5f7068;--gold:#d8b976;--card:#fffdf7;--red:#c65d56;--yellow:#edbb4a;--gray:#adb4b1}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}button,select{font:inherit;color:inherit}button,select,summary{cursor:pointer}button:focus-visible,select:focus-visible,summary:focus-visible,[role=button]:focus-visible{outline:3px solid #416aaf;outline-offset:4px}header{background:var(--green);color:var(--paper);padding:26px max(24px,calc((100vw - 1380px)/2)) 32px}header .top{display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#e6ce9a}.eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700}h1{font:clamp(32px,4vw,58px)/1.13 Georgia,serif;font-weight:400;margin:22px 0 10px;max-width:1100px}h2{font:30px/1.2 Georgia,serif;font-weight:400;margin:8px 0 18px}h3{font-size:16px;line-height:1.4;margin:0 0 9px}p{margin:7px 0 13px}header p{color:#e3eadf;max-width:1020px}.btn{background:transparent;border:1px solid currentColor;border-radius:7px;padding:8px 15px}.demo{background:#f4dfaa;color:#4d3c17;padding:9px 24px;text-align:center;font-size:13px;font-weight:700}main{max-width:1428px;margin:auto;padding:28px 24px 50px}.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 0 32px}.kpi{padding:18px 24px;border-right:1px solid var(--line)}.kpi:first-child{padding-left:0}.kpi:last-child{border:0}.big{font:38px/1.15 Georgia,serif}.small{font-size:13px;color:var(--muted)}.two{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:28px}.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:25px;margin-bottom:25px}.clock-panel{background:#f3efe2}.clock-wrap{max-width:600px;margin:0 auto}svg{display:block;width:100%;height:auto}.clock-segment{cursor:pointer}.clock-segment:hover{filter:brightness(1.09)}.clock-segment:focus{outline:none}.clock-segment:focus path{stroke:#416aaf;stroke-width:4}.filters{display:flex;gap:14px;flex-wrap:wrap;margin:12px 0 8px}.filters label{font-size:12px;font-weight:700;flex:1;min-width:160px}select{display:block;width:100%;margin-top:5px;padding:10px;background:var(--card);border:1px solid #bcc8bd;border-radius:7px}.legend{display:flex;gap:8px 18px;flex-wrap:wrap;margin:14px 0 9px;font-size:12px}.swatch{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:middle}.current{border-left:3px solid var(--green);padding:4px 0 4px 14px;margin:20px 0}.current strong{display:block}.stage-detail{border-top:1px solid var(--line);padding-top:18px;min-height:155px}.badge{display:inline-block;font-size:11px;letter-spacing:.02em;border:1px solid #c3ccc2;border-radius:20px;padding:2px 8px;margin:0 6px 5px 0;color:var(--muted)}.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.role{border-top:3px solid var(--gold);padding:14px 0 4px}.role p{font-size:14px}.quote{font-size:12px;color:var(--muted);border-left:2px solid #d3c39e;padding:3px 0 3px 10px;margin:8px 0;overflow-wrap:anywhere}.decisions{counter-reset:decision;margin-top:24px}.decision{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}.decision:before{counter-increment:decision;content:counter(decision,decimal-leading-zero);font:24px Georgia,serif;color:#a78b4e}.decision p{font-size:14px}.barrow{display:grid;grid-template-columns:minmax(130px,1fr) minmax(100px,2fr) 70px;align-items:center;gap:12px;width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);text-align:left;padding:14px 0}.barrow.selected{outline:2px solid var(--green);outline-offset:3px}.barrow .title{font-size:14px;font-weight:600}.bartrack{height:13px;background:#edf0e8;border-radius:4px;overflow:hidden}.barfill{height:100%;min-width:2px;border-radius:4px}.count{text-align:right;font-variant-numeric:tabular-nums}.chapter-note{font-size:12px;color:var(--muted);grid-column:1/-1}.section-title{margin-top:32px}.lexical{display:grid;grid-template-columns:1fr 1fr;gap:25px}.lexical .panel{margin:0}.lexical .wide{grid-column:1/-1}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding:10px 8px;border-bottom:2px solid var(--line)}td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}td.num{text-align:right;width:50px;font-variant-numeric:tabular-nums}.refs{font-size:11px;color:var(--muted)}details.module{border:1px solid var(--line);background:var(--card);border-radius:10px;margin:10px 0;overflow:hidden}details.module summary{padding:16px 20px;font-size:15px;font-weight:650}details.module .inside{padding:0 20px 18px}.module-state{float:right;font-size:11px;font-weight:400;color:var(--muted);margin-left:10px}.finding{border-top:1px solid var(--line);padding-top:12px;margin-top:12px;font-size:14px}.sample{background:#f3f0e6;border:1px dashed #c6b381;padding:16px;font-size:14px;white-space:pre-wrap}.mapgrid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.map-stage{border-left:4px solid var(--gray);padding:10px 14px;margin:13px 0;background:var(--card);border-radius:0 8px 8px 0}.map-stage h3{font-size:14px}.map-stage p{font-size:13px}.map-stage.current-stage{outline:2px solid var(--green)}footer{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;font-size:12px;color:var(--muted);overflow-wrap:anywhere}.muted{color:var(--muted)}[hidden]{display:none!important}.print-note{font-size:12px}.notice{font-size:13px;color:var(--muted)}@media(max-width:900px){.two,.mapgrid{grid-template-columns:1fr}.role-grid{gap:16px}.kpi{padding:15px}.big{font-size:30px}.panel{padding:20px}.lexical{grid-template-columns:1fr}.lexical .wide{grid-column:auto}}@media(max-width:550px){main{padding:20px 14px}header{padding:22px 20px}.kpis{grid-template-columns:1fr 1fr}.kpi{border-bottom:1px solid var(--line)}.kpi:nth-child(2){border-right:0}.kpi:nth-child(3){padding-left:0}.role-grid{grid-template-columns:1fr}.barrow{grid-template-columns:110px 1fr 50px;gap:8px}h2{font-size:25px}.module-state{float:none;display:block;margin:4px 0 0}}@media print{body{background:white;font-size:10pt}.btn,.filters{display:none}.two{grid-template-columns:1fr 1fr;gap:16px}main{padding:12px}header{padding:20px;background:white;color:var(--ink)}header p,.brand{color:var(--muted)}.panel,details.module{break-inside:avoid}.mapgrid,.lexical{display:block}.panel{margin:10px 0}.big{font-size:26px}.demo{padding:6px}h1{font-size:30px}.module .inside{display:block!important}.map-stage{break-inside:avoid}summary{list-style:none}footer{break-inside:avoid}}\n</style></head><body>\n<div id="demo" class="demo" hidden>SAMPLE DATA \xB7 This is not a review of a real book.</div>\n<header><div class="top"><span class="brand"><span lang="en">Publishify Masthead</span> / <span>Editorial Board</span></span><button class="btn" id="print">Print</button></div><h1 id="title"></h1><p id="coverage"></p><span class="brand" id="reading"></span></header>\n<main><div class="kpis" id="kpis"></div><div class="two"><section class="panel clock-panel"><span class="eyebrow">The journey clocks</span><h2>Two journeys, one view</h2><div class="filters"><label>Choose chapter<select id="chapter"><option value="">All chapters</option></select></label><label>Filter by status<select id="status"><option value="">All statuses</option></select></label></div><p class="small">Your selection highlights linked stages. Word and repetition counts apply to the whole report.</p><div class="clock-wrap"><svg id="clock" viewBox="0 0 640 640" role="img" aria-label="Campbell 17 stages outside, Vogler 12 stages inside. Numbered segments can be selected."></svg></div><div class="legend" id="legend"></div><p class="small">Outer: Campbell 17 \xB7 Inner: Vogler 12 \xB7 Black dot: current position. Angles do not imply a one-to-one match.</p><div class="current" id="current"></div><div class="stage-detail" id="stage" aria-live="polite"><h3>Select a segment</h3><p class="small">The stage name, function, linked chapters and evidence appear here. You can use Tab and Enter.</p></div></section><div><section class="panel"><span class="eyebrow">Different views of the same text</span><h2>Board notes</h2><div class="role-grid" id="opinions"></div><p class="notice">These are AI readings. Reader cards are simulations.</p></section><section class="panel"><span class="eyebrow">At most three main issues</span><h2>Key decisions</h2><p id="verdict"></p><div class="decisions" id="decisions"></div><div id="disagreements"></div></section></div></div>\n<section class="panel"><span class="eyebrow">By chapter</span><h2>Word counts and status</h2><div id="chapters"></div><p class="small" id="count-method"></p></section>\n<div class="section-title"><span class="eyebrow">A count is a signal, not a judgment</span><h2>Word and sentence patterns</h2><p class="notice" id="repeat-method"></p><p class="small" id="sentences"></p></div><div class="lexical" id="lexical"></div>\n<section class="section-title"><span class="eyebrow">Full reviews</span><h2>Every voice in its place</h2><p class="notice">Reader cards contain reactions only.</p><div id="modules"></div></section>\n<section class="section-title"><span class="eyebrow">From evidence to map</span><h2>All stages of both journeys</h2><p class="notice">"Not written yet" is not a fault. Gray marks drafts, notes or unread sections. A deliberate departure from the template can still be green.</p><div class="mapgrid" id="maps"></div></section>\n<footer><strong lang="en">Publishify Masthead</strong> \xB7 <span>The voice belongs to the author.</span><p><a href="https://publishify.app/studio/" style="color:inherit">Keep writing in Publishify Studio</a></p><p id="method"></p><p id="fingerprint"></p><p class="print-note">This page works offline.</p></footer></main>\n<script id="dashboard-data" type="application/json">__MASTHEAD_DATA__</script>\n<script>\n"use strict";\nconst D=JSON.parse(document.getElementById("dashboard-data").textContent), A=D.analysis, UI=D.ui||{}, T=UI.strings||{}, LANG=UI.lang||"en";\nconst t=(s,v)=>(T[s]??s).replace(/\\{(\\w+)\\}/g,(m,k)=>v&&k in v?String(v[k]):m), deep=o=>typeof o==="string"?t(o):Object.fromEntries(Object.entries(o).map(([k,v])=>[k,deep(v)])), L=deep(D.labels), M=deep(D.method);\ndocument.documentElement.lang=LANG;\n{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),nodes=[];while(w.nextNode())if(w.currentNode.parentNode.nodeName!=="SCRIPT")nodes.push(w.currentNode);for(const n of nodes){const k=n.nodeValue.trim();if(T[k])n.nodeValue=n.nodeValue.replace(k,()=>T[k]);}for(const e of document.querySelectorAll("[aria-label]")){const k=e.getAttribute("aria-label");if(T[k])e.setAttribute("aria-label",T[k]);}}\nfor(const stages of Object.values(A.maps||{}))for(const s of stages){s.name=t(s.name);s.function=t(s.function);}\nconst $=id=>document.getElementById(id), E=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=String(text);return e;};\nconst number=n=>n===null?"\u2014":new Intl.NumberFormat(LANG).format(n), chapterMap=Object.fromEntries(D.chapters.map(c=>[c.id,c]));\nlet chosen="",status="",active=null;\nfunction sourceRefs(refs){return[...new Set((refs||[]).map(r=>`${chapterMap[r.chapter]?.title||r.chapter} \xB6${r.paragraph}`))].join(" \xB7 ");}\nfunction addEvidence(parent,refs){for(const r of refs||[])parent.append(E("div","quote",`\u201C${r.quote}\u201D \u2014 ${sourceRefs([r])}`));}\nfunction badge(text,color){const b=E("span","badge",text);if(color){b.style.borderColor=color;b.style.color="var(--ink)";}return b;}\nfunction stageTitle(model,s){return`${model==="campbell"?"Campbell":"Vogler"} ${s.id} / ${s.name}`;}\nfunction showStage(model,s){active={model,id:s.id};const box=$("stage");box.replaceChildren(E("h3","",stageTitle(model,s)),badge(L.status[s.status],D.colors[s.status]),badge(L.assessment[s.assessment]),E("p","small",s.function),E("p","",s.note));if(s.chapters.length)box.append(E("p","small",t("Chapters: {list}",{list:s.chapters.map(id=>chapterMap[id].title).join(", ")})));addEvidence(box,s.evidence);drawClock();}\nconst point=(r,a)=>[320+r*Math.cos(a*Math.PI/180),320+r*Math.sin(a*Math.PI/180)];\nfunction wedge(ro,ri,start,end){const a=point(ro,start),b=point(ro,end),c=point(ri,end),d=point(ri,start);return`M${a} A${ro},${ro} 0 0 1 ${b} L${c} A${ri},${ri} 0 0 0 ${d} Z`;}\nfunction S(tag,attrs,text){const el=document.createElementNS("http://www.w3.org/2000/svg",tag);for(const[k,v]of Object.entries(attrs||{}))el.setAttribute(k,String(v));if(text!==undefined)el.textContent=text;return el;}\nfunction drawClock(){const svg=$("clock");svg.replaceChildren();for(const[model,ro,ri]of[["campbell",292,211],["vogler",184,124]]){const stages=A.maps[model],step=360/stages.length;for(const s of stages){const start=-90+(s.id-1)*step+.75,end=-90+s.id*step-.75,mid=(start+end)/2,linked=!chosen||s.chapters.includes(chosen),visible=!status||s.status===status,selected=active?.model===model&&active.id===s.id;\nconst g=S("g",{class:"clock-segment",tabindex:0,role:"button","aria-label":`${stageTitle(model,s)}. ${L.status[s.status]}. ${L.assessment[s.assessment]}`,opacity:linked&&visible?1:.2});g.append(S("title",{},`${stageTitle(model,s)} \xB7 ${L.status[s.status]} \xB7 ${L.assessment[s.assessment]}`));g.append(S("path",{d:wedge(ro,ri,start,end),fill:D.colors[s.status],stroke:selected?"#142c24":chosen&&linked?"#142c24":"#faf4e6","stroke-width":selected?5:chosen&&linked?3:1}));const[x,y]=point((ro+ri)/2,mid);g.append(S("text",{x,y:y+5,"text-anchor":"middle","font-size":16,"font-weight":700,fill:["green","red"].includes(s.status)?"white":"#193e33","pointer-events":"none"},s.id));g.addEventListener("click",()=>showStage(model,s));g.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();showStage(model,s);}});svg.append(g);\nif((A.current?.[model]||[]).includes(s.id)){const[x,y]=point(ro+8,mid);svg.append(S("circle",{cx:x,cy:y,r:6,fill:"#142c24","aria-label":t("{model} current {id}",{model,id:s.id})}));}}\n}svg.append(S("text",{x:320,y:297,"text-anchor":"middle","font-size":12,"letter-spacing":2,fill:"#5f7068"},t("NOW")));for(const[model,y]of[["campbell",328],["vogler",352]])svg.append(S("text",{x:320,y,"text-anchor":"middle","font-size":16,"font-weight":600,fill:"#193e33"},`${model==="campbell"?"Campbell":"Vogler"} ${(A.current?.[model]||[]).join(", ")||"?"}`));}\nfunction drawChapters(){const parent=$("chapters");parent.replaceChildren();const max=Math.max(1,...D.chapters.map(c=>c.word_count||0));for(const c of D.chapters){if(status&&c.review.status!==status)continue;const row=E("button","barrow"+(chosen===c.id?" selected":""));row.type="button";row.setAttribute("aria-label",t("{title}, {count} words, {status}",{title:c.title,count:number(c.word_count),status:L.status[c.review.status]}));const title=E("div","title",c.title);title.append(E("div","small",L.kinds[c.kind]+(c.locked?" \xB7 "+t("structure locked"):"")));const track=E("div","bartrack"),fill=E("div","barfill");fill.style.width=`${(c.word_count||0)*100/max}%`;fill.style.background=D.colors[c.review.status];track.append(fill);row.append(title,track,E("div","count",number(c.word_count)),E("div","chapter-note",`${L.status[c.review.status]} \xB7 ${c.review.note}`));row.addEventListener("click",()=>{chosen=chosen===c.id?"":c.id;$("chapter").value=chosen;refresh();});parent.append(row);}}\nfunction drawMaps(){const parent=$("maps");parent.replaceChildren();for(const[model,title]of[["campbell","Campbell / 17"],["vogler","Vogler / 12"]]){const col=E("div");col.append(E("h3","",title));for(const s of A.maps[model]){if(status&&s.status!==status||chosen&&!s.chapters.includes(chosen))continue;const card=E("article","map-stage"+((A.current?.[model]||[]).includes(s.id)?" current-stage":""));card.style.borderLeftColor=D.colors[s.status];const button=E("button","btn",`${String(s.id).padStart(2,"0")} / ${s.name}`);button.addEventListener("click",()=>{showStage(model,s);$("stage").scrollIntoView({behavior:"smooth",block:"center"});});card.append(button,E("p","small",s.function),badge(L.status[s.status],D.colors[s.status]),badge(L.assessment[s.assessment]),E("p","",s.note));if(s.chapters.length)card.append(E("p","small",s.chapters.map(id=>chapterMap[id].title).join(", ")));addEvidence(card,s.evidence);col.append(card);}parent.append(col);}}\nfunction refresh(){drawClock();drawChapters();drawMaps();}\n$("title").textContent=D.project.title||t("Shared text");$("coverage").textContent=A.coverage?t("Read {read} of {total} sections.",A.coverage):A.coverage_note;$("demo").hidden=!D.project.demo;document.title=`Publishify Masthead \xB7 ${D.project.title||t("Dashboard")}`;$("reading").textContent=A.reading_mode==="independent"?t("Independent AI readings"):t("AI readings in one session");\nconst findModule=id=>(A.modules||[]).find(m=>m.id===id),problemsOf=m=>m?(m.findings||[]).filter(f=>f.label==="Definite issue"||f.label==="Preference"):[],NO_FINDINGS=t("Congratulations, no findings in the sections read. Well done."),moduleCard=(id,name)=>{const m=findModule(id),s=problemsOf(m),k=s.filter(f=>f.label==="Definite issue").length,p=s.length-k;if(!m||m.state==="not_run"||m.state==="not_needed")return[null,t("{name}: not run",{name})];if(!s.length)return[0,m.state==="complete"?name+" \xB7 "+NO_FINDINGS:t("{name}: no findings, limited review",{name})];return[s.length,t("{name}: {definite} definite, {preference} preference",{name,definite:k,preference:p})+(m.state==="complete"?"":" \xB7 "+t("limited review"))];},repetitionCount=(D.lexical.phrases||[]).length+(D.lexical.sentences||[]).length+(D.lexical.patterns||[]).length;for(const[value,label]of[[D.summary.prose_words,t("words read")],moduleCard("spelling",t("Spelling")),[repetitionCount,t("Repetition candidates: a count, not an error")],moduleCard("continuity",t("Continuity"))]){const k=E("div","kpi");k.append(E("div","big",number(value)),E("div","small",label));$("kpis").append(k);}\nfor(const c of D.chapters){const o=E("option","",c.title);o.value=c.id;$("chapter").append(o);}for(const[k,v]of Object.entries(L.status)){const o=E("option","",v);o.value=k;$("status").append(o);const i=E("span"),s=E("span","swatch");s.style.background=D.colors[k];i.append(s,document.createTextNode(v));$("legend").append(i);}\n$("chapter").addEventListener("change",e=>{chosen=e.target.value;refresh();});$("status").addEventListener("change",e=>{status=e.target.value;refresh();});$("print").addEventListener("click",()=>window.print());\n$("current").append(E("strong","",A.current?.chapter?`${chapterMap[A.current.chapter].title} / ${t("latest event")}`:t("Position not determined")),...(A.current?.summary||!A.current?.evidence?.length?[E("p","small",A.current?.summary||t("Not enough textual evidence yet."))]:[]));addEvidence($("current"),A.current?.evidence);\nfor(const[key,title]of Object.entries(L.roles)){const item=A.opinions[key],box=E("article","role");box.append(E("h3","",title),badge(L.states[item.state]),E("p","",item.summary));addEvidence(box,item.evidence);$("opinions").append(box);}\n$("verdict").textContent=A.overview||"";for(const d of A.decisions||[]){const row=E("article","decision"),body=E("div");body.append(badge(t(d.label)),E("p","",d.text));addEvidence(body,d.evidence);row.append(body);$("decisions").append(row);}if(A.disagreements)$("disagreements").append(E("h3","",t("Where the roles disagree")),E("p","small",A.disagreements));\n$("count-method").textContent=M.word_count;$("repeat-method").textContent=`${M.scope}. ${M.repetitions}`;$("sentences").textContent=`${t("Sentences: {count} \xB7 Average length: {mean} words \xB7 Sentences over 35 words: {long}.",{count:number(D.summary.sentence_count),mean:number(D.summary.mean_sentence_words),long:number(D.summary.long_sentences_35)})} ${M.patterns}`;\nfor(const[title,key,field,wide]of[[t("Content words"),"content_words","word",false],[t("Frequent words \xB7 including function words"),"all_frequent_words","word",false],[t("Repeated 3\u20136 word phrases"),"phrases","phrase",true],[t("Repeated sentences"),"sentences","sentence",true],[t("Defined sentence patterns"),"patterns","pattern",true]]){if(!D.lexical[key])continue;const box=E("section","panel"+(wide?" wide":""));box.append(E("h3","",title));const wrap=E("div","table-wrap"),table=E("table"),head=E("thead"),hr=E("tr");for(const h of[t("Candidate / pattern"),t("Count"),t("Where")])hr.append(E("th","",h));head.append(hr);table.append(head);const body=E("tbody");for(const item of D.lexical[key]){const row=E("tr");row.append(E("td","",item[field]),E("td","num",number(item.count)),E("td","refs",sourceRefs(item.refs)));body.append(row);}if(!D.lexical[key].length){const row=E("tr"),cell=E("td","muted",t("No candidates above the threshold."));cell.colSpan=3;row.append(cell);body.append(row);}table.append(body);wrap.append(table);box.append(wrap);$("lexical").append(box);}\nfor(const m of A.modules||[]){const details=E("details","module"),summary=E("summary","",L.modules[m.id]),inside=E("div","inside");summary.append(E("span","module-state",L.states[m.state]));inside.append(E("p","",m.summary));addEvidence(inside,m.evidence);for(const f of m.findings||[]){const b=E("div","finding");b.append(badge(t(f.label)),E("p","",f.text));addEvidence(b,f.evidence);inside.append(b);}details.append(summary,inside);$("modules").append(details);}\n$("method").textContent=M.patterns;$("fingerprint").textContent=t("Source match: {hash} \xB7 Report date: {date}",{hash:D.metrics_sha256,date:A.generated_at?new Date(A.generated_at).toLocaleDateString(LANG):t("Not specified")});refresh();\nif(A.journeys===false){document.querySelector(".clock-panel").hidden=true;document.querySelector(".two").style.gridTemplateColumns="1fr";$("maps").closest("section").hidden=true;}\nwindow.addEventListener("beforeprint",()=>{for(const e of document.querySelectorAll("details.module")){e.dataset.wasOpen=e.open?"1":"0";e.open=true;}});window.addEventListener("afterprint",()=>{for(const e of document.querySelectorAll("details.module"))e.open=e.dataset.wasOpen==="1";});\n</script></body></html>\n';
 
+// scripts/run/review.ts
+var MAX_MODEL_TRIES = 3;
+var DEFAULT_PART_SIZE = 25;
+function parseOutput(text) {
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  if (start < 0 || end <= start) throw new Error("The model did not return JSON.");
+  return JSON.parse(text.slice(start, end + 1));
+}
+function ensure(reply) {
+  if (reply.error) throw new Error(reply.error);
+  return reply;
+}
+async function runReview(input, deps) {
+  const started = Date.now();
+  let cost = 0;
+  let report;
+  const prepared = await deps.prepare(input.file, input.genre);
+  const saved = ensure(
+    await deps.callTool("save_book", {
+      ...prepared.book_id ? { book_id: prepared.book_id } : {},
+      title: input.title,
+      genre: input.genre,
+      language: prepared.language,
+      manifest: prepared.manifest
+    })
+  );
+  const bookId = saved.book_id;
+  deps.saveBookId(bookId);
+  const promptFor = (step, feedback) => {
+    const source = step.unit ? deps.sectionText(step.unit) : deps.bookContext(step.role);
+    return `${step.instructions}
+# Text
+
+${source}${feedback}`;
+  };
+  async function readWithModel(step, feedback) {
+    for (let attempt = 1; ; attempt++) {
+      const answer = await deps.ask(promptFor(step, feedback));
+      cost += answer.costUsd;
+      try {
+        return parseOutput(answer.text);
+      } catch (error) {
+        if (attempt >= MAX_MODEL_TRIES) throw error;
+      }
+    }
+  }
+  async function send(step, body) {
+    const ids = { book_id: bookId, job_id: step.job_id, step_id: step.step_id };
+    const size = step.max_notes_per_part ?? DEFAULT_PART_SIZE;
+    const notes = body.notes ?? [];
+    const lastPart = Math.max(1, Math.ceil(notes.length / size));
+    let reply = {};
+    for (let part = 1; part <= lastPart; part++) {
+      reply = ensure(
+        await deps.callTool("submit_result", {
+          ...ids,
+          part_no: part,
+          last_part: part === lastPart,
+          notes: notes.slice((part - 1) * size, part * size),
+          ...part === 1 && body.stages ? { stages: body.stages } : {},
+          ...part === 1 && body.measurements ? { measurements: body.measurements } : {}
+        })
+      );
+      if (reply.outcome === "returned" || reply.outcome === "reported") return reply;
+    }
+    return reply;
+  }
+  async function workOn(step, feedback = "") {
+    deps.log(`${step.role}${step.unit ? ` ${step.unit}` : ""}`);
+    let reply;
+    if (step.role === "measure") {
+      reply = await send(step, { measurements: deps.measureAll() });
+    } else {
+      const output = await readWithModel(step, feedback);
+      if (step.unit && output.summary !== void 0) deps.saveSummary(step.unit, output.summary);
+      const checked = await deps.checkNotes(output, step.unit ?? void 0);
+      const found = step.unit ? deps.spellingNotes(step.unit, prepared.language) : [];
+      const known = new Set(checked.notes.map((n) => `${n.paragraph}:${n.wrong}`));
+      const extra = found.filter((n) => !known.has(`${n.paragraph}:${n.wrong}`));
+      reply = await send(step, { notes: [...checked.notes, ...extra], stages: checked.stages });
+    }
+    if (reply.outcome === "returned") {
+      return workOn(
+        step,
+        `
+
+# Your last answer was refused
+${JSON.stringify(reply.rejections)}`
+      );
+    }
+    if (reply.outcome === "reported") deps.log(`${step.role} could not be completed`);
+    if (reply.next) await handle(reply.next);
+  }
+  async function handle(reply) {
+    ensure(reply);
+    if (reply.report_ready) report = reply;
+    await Promise.all((reply.steps ?? []).map((step) => workOn(step)));
+  }
+  await handle(await deps.callTool("next_step", { book_id: bookId }));
+  if (!report?.dashboard) throw new Error("The review ended without a report.");
+  const uiLanguage = input.language ?? (prepared.language === "und" ? "en" : prepared.language);
+  const done = await deps.finish(report.dashboard, uiLanguage);
+  return {
+    html: done.html,
+    language: uiLanguage,
+    cost_usd: Math.round((cost + done.costUsd) * 100) / 100,
+    seconds: Math.round((Date.now() - started) / 1e3),
+    decisions: (report.dashboard.analysis?.decisions ?? []).map((d) => d.text)
+  };
+}
+
+// scripts/run/server.ts
+import { spawn } from "node:child_process";
+import { createHash, randomBytes } from "node:crypto";
+import {
+  chmodSync,
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  writeFileSync
+} from "node:fs";
+import { createServer } from "node:http";
+import { homedir, platform, tmpdir } from "node:os";
+import { join } from "node:path";
+var SERVER = "https://mcp.publishify.app";
+var AUTH_DIR = join(homedir(), ".config", "masthead");
+var AUTH_FILE = join(AUTH_DIR, "auth.json");
+var LOGIN_TIMEOUT_MS = 3e5;
+var MODEL_TIMEOUT_MS = 6e5;
+var NO_TOOLS = "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill";
+var base64url = (bytes) => bytes.toString("base64url");
+function openInBrowser(target) {
+  const command = platform() === "darwin" ? "open" : platform() === "win32" ? "explorer" : "xdg-open";
+  spawn(command, [target], { stdio: "ignore", detached: true }).on("error", () => {
+  }).unref();
+}
+function saveAuth(auth) {
+  mkdirSync(AUTH_DIR, { recursive: true });
+  writeFileSync(AUTH_FILE, JSON.stringify(auth));
+  chmodSync(AUTH_FILE, 384);
+}
+var toAuth = (clientId, tokens) => ({
+  client_id: clientId,
+  access_token: tokens.access_token,
+  ...tokens.refresh_token ? { refresh_token: tokens.refresh_token } : {},
+  expires_at: Date.now() + (tokens.expires_in ?? 3600) * 1e3
+});
+async function requestTokens(fields) {
+  const response = await fetch(`${SERVER}/oauth/token`, {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(fields)
+  });
+  return response.ok ? await response.json() : void 0;
+}
+function login() {
+  return new Promise((done, fail) => {
+    const verifier = base64url(randomBytes(32));
+    const state = base64url(randomBytes(16));
+    let clientId = "";
+    let redirect = "";
+    const server = createServer(async (request, response) => {
+      const url = new URL(request.url ?? "/", "http://127.0.0.1");
+      if (url.pathname !== "/callback") return response.writeHead(404).end();
+      const code = url.searchParams.get("code");
+      const accepted = code && url.searchParams.get("state") === state;
+      response.writeHead(200, { "content-type": "text/plain; charset=utf-8" });
+      response.end(accepted ? "Signed in. You can close this tab." : "Sign-in failed.");
+      server.close();
+      clearTimeout(timer);
+      if (!accepted) return fail(new Error("LOGIN_REQUIRED"));
+      const tokens = await requestTokens({
+        grant_type: "authorization_code",
+        code,
+        client_id: clientId,
+        redirect_uri: redirect,
+        code_verifier: verifier
+      });
+      if (!tokens) return fail(new Error("LOGIN_REQUIRED"));
+      const auth = toAuth(clientId, tokens);
+      saveAuth(auth);
+      done(auth);
+    });
+    const timer = setTimeout(() => {
+      server.close();
+      fail(new Error("LOGIN_REQUIRED"));
+    }, LOGIN_TIMEOUT_MS);
+    server.listen(0, "127.0.0.1", async () => {
+      const { port } = server.address();
+      redirect = `http://127.0.0.1:${port}/callback`;
+      const registered = await fetch(`${SERVER}/oauth/register`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          redirect_uris: [redirect],
+          client_name: "Publishify Masthead",
+          token_endpoint_auth_method: "none"
+        })
+      });
+      clientId = (await registered.json()).client_id;
+      const challenge = base64url(createHash("sha256").update(verifier).digest());
+      const query = new URLSearchParams({
+        response_type: "code",
+        client_id: clientId,
+        redirect_uri: redirect,
+        state,
+        code_challenge: challenge,
+        code_challenge_method: "S256"
+      });
+      openInBrowser(`${SERVER}/authorize?${query}`);
+    });
+  });
+}
+async function accessToken(forceLogin = false) {
+  const saved = existsSync(AUTH_FILE) ? JSON.parse(readFileSync(AUTH_FILE, "utf-8")) : void 0;
+  if (saved && !forceLogin) {
+    if (saved.expires_at > Date.now() + 6e4) return saved.access_token;
+    if (saved.refresh_token) {
+      const tokens = await requestTokens({
+        grant_type: "refresh_token",
+        refresh_token: saved.refresh_token,
+        client_id: saved.client_id
+      });
+      if (tokens) {
+        const auth = toAuth(saved.client_id, tokens);
+        saveAuth(auth);
+        return auth.access_token;
+      }
+    }
+  }
+  return (await login()).access_token;
+}
+var pendingToken;
+var sharedToken = (force = false) => {
+  if (force || !pendingToken) pendingToken = accessToken(force);
+  return pendingToken;
+};
+async function callTool(name, args, retried = false) {
+  const response = await fetch(`${SERVER}/mcp`, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${await sharedToken()}`,
+      "content-type": "application/json",
+      accept: "application/json, text/event-stream",
+      "mcp-protocol-version": "2025-06-18"
+    },
+    body: JSON.stringify({
+      jsonrpc: "2.0",
+      id: 1,
+      method: "tools/call",
+      params: { name, arguments: args }
+    })
+  });
+  if (response.status === 401 && !retried) {
+    await sharedToken(true);
+    return callTool(name, args, true);
+  }
+  const body = await response.text();
+  const json = body.includes("data:") ? body.split("data:")[1]?.split("\n")[0] ?? "{}" : body;
+  const text = JSON.parse(json).result?.content?.[0]?.text;
+  if (!text) throw new Error(`SERVER_ERROR ${response.status}`);
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error("SERVER_REFUSED");
+  }
+}
+function askModel(prompt, model = "sonnet") {
+  return new Promise((done, fail) => {
+    const env = { ...process.env };
+    delete env.CLAUDECODE;
+    delete env.CLAUDE_CODE_ENTRYPOINT;
+    const child = spawn(
+      "claude",
+      [
+        "-p",
+        "--model",
+        model,
+        "--output-format",
+        "json",
+        "--strict-mcp-config",
+        "--disallowedTools",
+        NO_TOOLS
+      ],
+      { cwd: mkdtempSync(join(tmpdir(), "masthead-")), env }
+    );
+    const timer = setTimeout(() => child.kill(), MODEL_TIMEOUT_MS);
+    let output = "";
+    child.stdout.on("data", (chunk2) => {
+      output += chunk2;
+    });
+    child.on("error", () => fail(new Error("CLAUDE_NOT_FOUND")));
+    child.on("close", (code) => {
+      clearTimeout(timer);
+      if (code !== 0) return fail(new Error("MODEL_FAILED"));
+      try {
+        const result = JSON.parse(output);
+        done({ text: result.result, costUsd: result.total_cost_usd ?? 0 });
+      } catch {
+        fail(new Error("MODEL_FAILED"));
+      }
+    });
+    child.stdin.end(prompt);
+  });
+}
+
 // scripts/text/canonical.ts
 var canonical = (text) => text.replace(/\r\n?/g, "\n").normalize("NFC");
 async function hash(text) {
@@ -118,7 +426,7 @@ var codePoints = (text) => Array.from(text).length;
 var words = (text) => text.match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu) ?? [];
 
 // scripts/text/formats.ts
-import { readFileSync } from "node:fs";
+import { readFileSync as readFileSync2 } from "node:fs";
 import { extname } from "node:path";
 
 // node_modules/.pnpm/fflate@0.8.3/node_modules/fflate/esm/index.mjs
@@ -648,9 +956,9 @@ function readPlainText(content, stripYaml) {
 }
 function readFile(path) {
   const extension = extname(path).toLowerCase();
-  if (extension === ".md") return readPlainText(readFileSync(path, "utf-8"), true);
-  if (extension === ".txt") return readPlainText(readFileSync(path, "utf-8"), false);
-  if (extension === ".docx") return readDocx(readFileSync(path));
+  if (extension === ".md") return readPlainText(readFileSync2(path, "utf-8"), true);
+  if (extension === ".txt") return readPlainText(readFileSync2(path, "utf-8"), false);
+  if (extension === ".docx") return readDocx(readFileSync2(path));
   throw new TextError("FORMAT_UNSUPPORTED", `This file format is not supported yet: ${extension}`);
 }
 
@@ -791,6 +1099,54 @@ function findQuote(unit, quote, hint) {
   return resolve(candidates, chars, hint);
 }
 
+// scripts/text/spelling.ts
+var COMMON_ERRORS = {
+  tr: {
+    herkez: "herkes",
+    yanl\u0131z: "yaln\u0131z",
+    yaln\u0131\u015F: "yanl\u0131\u015F",
+    bir\u015Fey: "bir \u015Fey",
+    her\u015Fey: "her \u015Fey",
+    hi\u00E7bir\u015Fey: "hi\xE7bir \u015Fey",
+    herg\u00FCn: "her g\xFCn",
+    birg\u00FCn: "bir g\xFCn",
+    birs\u00FCr\u00FC: "bir s\xFCr\xFC",
+    \u015Fuan: "\u015Fu an",
+    orjinal: "orijinal",
+    tabiki: "tabii ki",
+    yada: "ya da",
+    makina: "makine",
+    s\u00FCpriz: "s\xFCrpriz",
+    kiprik: "kirpik",
+    tra\u015F: "t\u0131ra\u015F",
+    egzos: "egzoz"
+  }
+};
+function findSpellingErrors(paragraphs2, language) {
+  const errors = COMMON_ERRORS[language];
+  if (!errors) return [];
+  return paragraphs2.flatMap(
+    (text, index) => (text.match(new RegExp("\\p{L}+", "gu")) ?? []).flatMap((word) => {
+      const right = errors[word.toLocaleLowerCase(language)];
+      if (!right) return [];
+      return [
+        {
+          type: "language.spelling",
+          check: "objective",
+          result: "fail",
+          severity: "low",
+          certainty: "definite",
+          paragraph: index + 1,
+          quote: word,
+          wrong: word,
+          right,
+          verification: { method: "script", verified_by: "spelling-list" }
+        }
+      ];
+    })
+  );
+}
+
 // scripts/text/split.ts
 var MAX_UNIT_CHARS = 4e4;
 var LEVEL = {
@@ -881,20 +1237,20 @@ function split(raw, genre) {
 // scripts/text/cli.ts
 var WORK_DIR = ".masthead";
 var print = (value) => console.log(JSON.stringify(value));
-var unitPath = (no) => join(WORK_DIR, "units", `${no}.txt`);
-var readManifest = () => JSON.parse(readFileSync2(join(WORK_DIR, "manifest.json"), "utf-8"));
+var unitPath = (no) => join2(WORK_DIR, "units", `${no}.txt`);
+var readManifest = () => JSON.parse(readFileSync3(join2(WORK_DIR, "manifest.json"), "utf-8"));
 var option = (args, name) => {
   const i2 = args.indexOf(name);
   return i2 >= 0 ? args[i2 + 1] : void 0;
 };
 var languageOf = (args) => normalizeLang(option(args, "--lang") || process.env.CLAUDE_PLUGIN_OPTION_LANGUAGE || "en");
 var stringsDir = () => process.env.CLAUDE_PLUGIN_DATA || WORK_DIR;
-var stringsPath = (lang) => join(stringsDir(), `strings.${lang}.json`);
-var savedStrings = (lang) => existsSync(stringsPath(lang)) ? JSON.parse(readFileSync2(stringsPath(lang), "utf-8")) : {};
-var workFile = (name) => join(WORK_DIR, name);
-var readJson = (name) => existsSync(workFile(name)) ? JSON.parse(readFileSync2(workFile(name), "utf-8")) : void 0;
+var stringsPath = (lang) => join2(stringsDir(), `strings.${lang}.json`);
+var savedStrings = (lang) => existsSync2(stringsPath(lang)) ? JSON.parse(readFileSync3(stringsPath(lang), "utf-8")) : {};
+var workFile = (name) => join2(WORK_DIR, name);
+var readJson = (name) => existsSync2(workFile(name)) ? JSON.parse(readFileSync3(workFile(name), "utf-8")) : void 0;
 function openBook(file) {
-  mkdirSync(WORK_DIR, { recursive: true });
+  mkdirSync2(WORK_DIR, { recursive: true });
   const current = resolve2(file);
   const previous = readJson("source.json")?.file;
   const books = readJson("books.json") ?? {};
@@ -912,23 +1268,23 @@ function openBook(file) {
       rmSync(workFile(name), { recursive: true, force: true });
     }
     const known = books[current];
-    if (known) writeFileSync(workFile("book.json"), JSON.stringify({ book_id: known }));
+    if (known) writeFileSync2(workFile("book.json"), JSON.stringify({ book_id: known }));
   }
-  writeFileSync(workFile("source.json"), JSON.stringify({ file: current }));
-  writeFileSync(workFile("books.json"), JSON.stringify(books));
+  writeFileSync2(workFile("source.json"), JSON.stringify({ file: current }));
+  writeFileSync2(workFile("books.json"), JSON.stringify(books));
   return books[current];
 }
 async function prepare(file, genre) {
   const raw = readFile(file);
   const { units, confidence } = split(raw, genre);
   const bookId = openBook(file);
-  mkdirSync(join(WORK_DIR, "units"), { recursive: true });
+  mkdirSync2(join2(WORK_DIR, "units"), { recursive: true });
   const hashes = [];
   const list = [];
   for (const u of units) {
     const unitHash = await hash(u.text);
     hashes.push(unitHash);
-    writeFileSync(unitPath(u.no), u.text);
+    writeFileSync2(unitPath(u.no), u.text);
     list.push({
       no: u.no,
       level: u.level,
@@ -944,29 +1300,28 @@ async function prepare(file, genre) {
     book_hash: await bookHash(hashes),
     units: list
   };
-  writeFileSync(join(WORK_DIR, "manifest.json"), JSON.stringify(manifest));
-  print({
+  writeFileSync2(join2(WORK_DIR, "manifest.json"), JSON.stringify(manifest));
+  return {
     manifest,
     confidence,
     language: detectLanguage(raw.text),
     ...bookId ? { book_id: bookId } : {}
-  });
+  };
 }
 async function verify(file) {
-  const notes = JSON.parse(readFileSync2(file, "utf-8"));
+  const notes = JSON.parse(readFileSync3(file, "utf-8"));
   const result = [];
   for (const n of notes) {
-    const text = readFileSync2(unitPath(n.unit), "utf-8");
+    const text = readFileSync3(unitPath(n.unit), "utf-8");
     result.push({ ...n, match: findQuote(text, n.quote), unit_hash: await hash(text) });
   }
   print(result);
 }
-async function checkNotes(file, defaultUnit) {
-  const output = JSON.parse(readFileSync2(file, "utf-8"));
+async function checkNotes(output, defaultUnit) {
   const units = readManifest().units.map((u) => u.no);
-  const textOf = (unit) => readFileSync2(unitPath(unit), "utf-8");
+  const textOf = (unit) => readFileSync3(unitPath(unit), "utf-8");
   const matches = (unit, quote) => {
-    if (!existsSync(unitPath(unit))) return false;
+    if (!existsSync2(unitPath(unit))) return false;
     const { status } = findQuote(textOf(unit), quote);
     return status === "found" || status === "ambiguous";
   };
@@ -990,23 +1345,96 @@ async function checkNotes(file, defaultUnit) {
         ...note,
         ...located,
         ...note.evidence ? { evidence: evidence.map((e) => e.place) } : {},
-        ...unit && existsSync(unitPath(unit)) ? { unit_hash: await hash(textOf(unit)) } : {},
+        ...unit && existsSync2(unitPath(unit)) ? { unit_hash: await hash(textOf(unit)) } : {},
         verification: proven ? { method: "script", verified_by: "text-tool" } : { method: "model" }
       };
     })
   );
   return { notes, stages: output.stages ?? [] };
 }
+var FULL_TEXT_WORD_LIMIT = 4e4;
+var numbered = (unit) => paragraphs(readFileSync3(unitPath(unit), "utf-8")).map((text, i2) => `[${i2 + 1}] ${text}`).join("\n\n");
+var summaryPath = (unit) => join2(WORK_DIR, "summaries", `${unit}.json`);
+function bookContext(role) {
+  const { units } = readManifest();
+  const summarized = units.filter((u) => existsSync2(summaryPath(u.no)));
+  const summaries = summarized.map((u) => `## Section ${u.no}
+${readFileSync3(summaryPath(u.no), "utf-8")}`).join("\n\n");
+  const section = (no) => `## Section ${no}
+${numbered(no)}`;
+  if (role === "reader-panel") {
+    const opening = summarized[0];
+    return `# Summaries
+${summaries}
+
+# Opening
+${opening ? section(opening.no) : ""}`;
+  }
+  const total = units.reduce((sum, u) => sum + u.words, 0);
+  return total <= FULL_TEXT_WORD_LIMIT ? units.map((u) => section(u.no)).join("\n\n") : `# Summaries of a long book
+${summaries}`;
+}
+async function finishReport(dashboard, lang) {
+  const language = normalizeLang(lang);
+  writeFileSync2(join2(WORK_DIR, "dashboard.json"), JSON.stringify(dashboard));
+  let costUsd = 0;
+  const known = savedStrings(language);
+  const missing = language === "en" ? [] : catalog(template_default, dashboard).filter((s) => !known[s]);
+  if (missing.length > 0) {
+    const answer = await askModel(
+      `Translate each string into the language with tag "${language}", naturally, for a book report page. Keep every {slot} unchanged. Return only a JSON object from English to translation.
+
+${JSON.stringify(missing)}`,
+      "haiku"
+    );
+    costUsd = answer.costUsd;
+    const start = answer.text.indexOf("{");
+    const translated = cleanStrings(
+      JSON.parse(answer.text.slice(start, answer.text.lastIndexOf("}") + 1))
+    );
+    mkdirSync2(stringsDir(), { recursive: true });
+    writeFileSync2(stringsPath(language), JSON.stringify({ ...known, ...translated.strings }));
+  }
+  const html = "masthead-dashboard.html";
+  writeFileSync2(
+    html,
+    renderHtml(dashboard, template_default, { lang: language, strings: savedStrings(language) })
+  );
+  openInBrowser(html);
+  return { html, costUsd };
+}
+function reviewDeps() {
+  return {
+    callTool,
+    ask: (prompt) => askModel(prompt),
+    prepare,
+    measureAll: () => readManifest().units.map((u) => ({
+      no: u.no,
+      ...measure(readFileSync3(unitPath(u.no), "utf-8"))
+    })),
+    sectionText: numbered,
+    bookContext,
+    saveSummary(unit, summary) {
+      mkdirSync2(join2(WORK_DIR, "summaries"), { recursive: true });
+      writeFileSync2(summaryPath(unit), JSON.stringify(summary));
+    },
+    checkNotes,
+    spellingNotes: (unit, language) => findSpellingErrors(paragraphs(readFileSync3(unitPath(unit), "utf-8")), language),
+    saveBookId: (id) => writeFileSync2(join2(WORK_DIR, "book.json"), JSON.stringify({ book_id: id })),
+    finish: finishReport,
+    log: (message) => console.error(message)
+  };
+}
 async function main([command, ...args]) {
   if (command === "prepare" && args[0]) {
     const i2 = args.indexOf("--genre");
     const genre = i2 >= 0 ? args[i2 + 1] : "other";
     if (!GENRES.includes(genre)) throw new TextError("MODULE_MISSING", `Unknown genre: ${genre}`);
-    return prepare(args[0], genre);
+    return print(await prepare(args[0], genre));
   }
   if (command === "unit" && args[0]) {
     return print(
-      paragraphs(readFileSync2(unitPath(Number(args[0])), "utf-8")).map((text, i2) => ({
+      paragraphs(readFileSync3(unitPath(Number(args[0])), "utf-8")).map((text, i2) => ({
         no: i2 + 1,
         text
       }))
@@ -1016,40 +1444,65 @@ async function main([command, ...args]) {
     return print(
       readManifest().units.map((u) => ({
         no: u.no,
-        ...measure(readFileSync2(unitPath(u.no), "utf-8"))
+        ...measure(readFileSync3(unitPath(u.no), "utf-8"))
       }))
     );
   }
   if (command === "verify" && args[0]) return verify(args[0]);
   if (command === "check" && args[0]) {
     const unit = option(args, "--unit");
-    return print(await checkNotes(args[0], unit ? Number(unit) : void 0));
+    return print(
+      await checkNotes(JSON.parse(readFileSync3(args[0], "utf-8")), unit ? Number(unit) : void 0)
+    );
   }
   if (command === "render" && args[0]) {
     const target = option(args, "--output") || "masthead-dashboard.html";
     const lang = languageOf(args);
-    const data = JSON.parse(readFileSync2(args[0], "utf-8"));
+    const data = JSON.parse(readFileSync3(args[0], "utf-8"));
     const strings = savedStrings(lang);
-    writeFileSync(target, renderHtml(data, template_default, { lang, strings }));
+    writeFileSync2(target, renderHtml(data, template_default, { lang, strings }));
     const untranslated = lang === "en" ? 0 : catalog(template_default, data).filter((s) => !strings[s]).length;
     return print({ html: target, lang, untranslated });
   }
   if (command === "strings" && args[0]) {
     const lang = languageOf(args);
     const strings = savedStrings(lang);
-    const all = catalog(template_default, JSON.parse(readFileSync2(args[0], "utf-8")));
+    const all = catalog(template_default, JSON.parse(readFileSync3(args[0], "utf-8")));
     return print({ lang, missing: lang === "en" ? [] : all.filter((s) => !strings[s]) });
   }
   if (command === "save-strings" && args[0]) {
     const lang = languageOf(args);
-    const { strings, rejected } = cleanStrings(JSON.parse(readFileSync2(args[0], "utf-8")));
-    mkdirSync(stringsDir(), { recursive: true });
+    const { strings, rejected } = cleanStrings(JSON.parse(readFileSync3(args[0], "utf-8")));
+    mkdirSync2(stringsDir(), { recursive: true });
     const merged = { ...savedStrings(lang), ...strings };
-    writeFileSync(stringsPath(lang), JSON.stringify(merged));
+    writeFileSync2(stringsPath(lang), JSON.stringify(merged));
     return print({ lang, saved: Object.keys(strings).length, rejected });
   }
+  if (command === "run" && args[0]) {
+    const file = args[0];
+    return print(
+      await runReview(
+        {
+          file,
+          genre: option(args, "--genre") || "other",
+          title: option(args, "--title") || file.replace(/\.[^.]+$/, ""),
+          ...option(args, "--lang") ? { language: option(args, "--lang") } : {}
+        },
+        reviewDeps()
+      )
+    );
+  }
+  if (command === "status") {
+    const book = JSON.parse(readFileSync3(join2(WORK_DIR, "book.json"), "utf-8"));
+    const report = await callTool("read_report", { book_id: book.book_id });
+    if (report.error) throw new Error(report.error);
+    return print({
+      created: report.created,
+      decisions: (report.dashboard?.analysis?.decisions ?? []).map((d) => d.text)
+    });
+  }
   throw new Error(
-    "Usage: prepare <file> --genre <genre> | unit <no> | measure | verify <file> | check <file> [--unit <no>] | render <data.json> --output <file> [--lang <tag>] | strings <data.json> [--lang <tag>] | save-strings <file> [--lang <tag>]"
+    "Usage: run <file> --genre <genre> [--title <title>] [--lang <tag>] | status | prepare <file> --genre <genre> | unit <no> | measure | verify <file> | check <file> [--unit <no>] | render <data.json> --output <file> [--lang <tag>] | strings <data.json> [--lang <tag>] | save-strings <file> [--lang <tag>]"
   );
 }
 main(process.argv.slice(2)).catch((e) => {
