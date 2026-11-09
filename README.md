@@ -1,12 +1,12 @@
-<p align="center"><img src="assets/publishify-logo.svg" alt="Publishify" width="220"></p>
+![Publishify](assets/publishify-logo.svg)
 
-<p align="center"><img src=".claude-plugin/icon.png" alt="Publishify Masthead icon" width="120"></p>
+![Publishify Masthead icon](.claude-plugin/icon.png)
 
-<h1 align="center">Publishify Masthead</h1>
+# Publishify Masthead
 
-<p align="center"><strong>An AI editorial board for your book.</strong></p>
+**An AI editorial board for your book.**
 
-<p align="center"><img src="assets/board-table.svg" alt="The Masthead board table: the Editor-in-Chief script at the centre, with three AI readings and four scripts around it (sample status)" width="680"></p>
+![The Masthead board table: the Editor-in-Chief script at the centre, with three AI readings and four scripts around it (sample status)](assets/board-table.svg)
 
 Masthead reads your book the way a publishing house staff would, gives notes backed by quotes from your text, and shows the result on a visual dashboard. It never changes your text and never passes a verdict: the decisions stay yours.
 
@@ -22,7 +22,7 @@ Install guide: [English](docs/install.md) · [Türkçe](docs/install.tr.md)
 | **Auditor**      | Finds contradictions in age, date, place and objects, with evidence from two places, and maps the book onto [The Wayfarer's Seven Stages](docs/wayfarers-seven-stages.tr.md) |
 | **Reader Panel** | Simulates where a reader grew curious and where they drifted away                                                                                                            |
 
-<p align="center"><img src="assets/dashboard.png" alt="The Masthead dashboard with sample data: the office, the summary numbers, the ring of seven stages and the board's notes" width="760"></p>
+![The Masthead dashboard with sample data: the office, the summary numbers, the ring of seven stages and the board's notes](assets/dashboard.png)
 
 Scripts do the routine work without spending tokens: measuring, quote checks, frequent spelling errors, the scorecard and the dashboard. A section that has not changed is not read again.
 
