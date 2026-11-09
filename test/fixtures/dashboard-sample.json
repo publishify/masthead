@@ -119,7 +119,7 @@
     {
      "id": 1,
      "name": "The Call to Adventure",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "green",
      "assessment": "present",
      "chapters": [
@@ -137,7 +137,7 @@
     {
      "id": 2,
      "name": "Refusal of the Call",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "green",
      "assessment": "present",
      "chapters": [
@@ -155,7 +155,7 @@
     {
      "id": 3,
      "name": "Supernatural Aid",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -165,7 +165,7 @@
     {
      "id": 4,
      "name": "Crossing the First Threshold",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -175,7 +175,7 @@
     {
      "id": 5,
      "name": "Belly of the Whale",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -185,7 +185,7 @@
     {
      "id": 6,
      "name": "Road of Trials",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -195,7 +195,7 @@
     {
      "id": 7,
      "name": "Meeting with the Goddess",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -205,7 +205,7 @@
     {
      "id": 8,
      "name": "Temptation",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -215,7 +215,7 @@
     {
      "id": 9,
      "name": "Atonement with the Father",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -225,7 +225,7 @@
     {
      "id": 10,
      "name": "Apotheosis",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -235,7 +235,7 @@
     {
      "id": 11,
      "name": "The Ultimate Boon",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -245,7 +245,7 @@
     {
      "id": 12,
      "name": "Refusal of the Return",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -255,7 +255,7 @@
     {
      "id": 13,
      "name": "The Magic Flight",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -265,7 +265,7 @@
     {
      "id": 14,
      "name": "Rescue from Without",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -275,7 +275,7 @@
     {
      "id": 15,
      "name": "Crossing the Return Threshold",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -285,7 +285,7 @@
     {
      "id": 16,
      "name": "Master of Two Worlds",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -295,7 +295,7 @@
     {
      "id": 17,
      "name": "Freedom to Live",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -307,7 +307,7 @@
     {
      "id": 1,
      "name": "Ordinary World",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "green",
      "assessment": "present",
      "chapters": [
@@ -325,7 +325,7 @@
     {
      "id": 2,
      "name": "Call to Adventure",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "green",
      "assessment": "present",
      "chapters": [
@@ -343,7 +343,7 @@
     {
      "id": 3,
      "name": "Refusal of the Call",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "green",
      "assessment": "present",
      "chapters": [
@@ -361,7 +361,7 @@
     {
      "id": 4,
      "name": "Meeting the Mentor",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -371,7 +371,7 @@
     {
      "id": 5,
      "name": "Crossing the Threshold",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -381,7 +381,7 @@
     {
      "id": 6,
      "name": "Tests, Allies, Enemies",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -391,7 +391,7 @@
     {
      "id": 7,
      "name": "Approach to the Inmost Cave",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -401,7 +401,7 @@
     {
      "id": 8,
      "name": "The Ordeal",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -411,7 +411,7 @@
     {
      "id": 9,
      "name": "Reward",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -421,7 +421,7 @@
     {
      "id": 10,
      "name": "The Road Back",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -431,7 +431,7 @@
     {
      "id": 11,
      "name": "Resurrection",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
@@ -441,7 +441,7 @@
     {
      "id": 12,
      "name": "Return with the Elixir",
-     "function": "What this stage does in a story.",
+     "function": "What this stage does in the book.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],

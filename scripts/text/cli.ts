@@ -1,8 +1,9 @@
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import type { Genre, Hash, Manifest } from "../../shared/types";
 import { GENRES } from "../../shared/types";
 import { renderHtml } from "../dashboard/render";
+import { catalog, cleanStrings, normalizeLang, type Strings } from "../dashboard/strings";
 import template from "../dashboard/template.html";
 import { bookHash, hash, paragraphs } from "./canonical";
 import { readFile, TextError } from "./formats";
@@ -17,6 +18,18 @@ const readManifest = () =>
   JSON.parse(readFileSync(join(WORK_DIR, "manifest.json"), "utf-8")) as Manifest;
 
 type NoteInput = { unit: number; quote: string };
+
+const option = (args: string[], name: string) => {
+  const i = args.indexOf(name);
+  return i >= 0 ? args[i + 1] : undefined;
+};
+/** An explicit option wins; then the plugin's language setting; then English. */
+const languageOf = (args: string[]) =>
+  normalizeLang(option(args, "--lang") || process.env.CLAUDE_PLUGIN_OPTION_LANGUAGE || "en");
+const stringsDir = () => process.env.CLAUDE_PLUGIN_DATA || WORK_DIR;
+const stringsPath = (lang: string) => join(stringsDir(), `strings.${lang}.json`);
+const savedStrings = (lang: string): Strings =>
+  existsSync(stringsPath(lang)) ? JSON.parse(readFileSync(stringsPath(lang), "utf-8")) : {};
 
 async function prepare(file: string, genre: Genre) {
   const raw = readFile(file);
@@ -82,13 +95,31 @@ async function main([command, ...args]: string[]) {
   }
   if (command === "verify" && args[0]) return verify(args[0]);
   if (command === "render" && args[0]) {
-    const i = args.indexOf("--output");
-    const target = i >= 0 && args[i + 1] ? args[i + 1] : "masthead-dashboard.html";
-    writeFileSync(String(target), renderHtml(JSON.parse(readFileSync(args[0], "utf-8")), template));
-    return print({ html: target });
+    const target = option(args, "--output") || "masthead-dashboard.html";
+    const lang = languageOf(args);
+    const data: unknown = JSON.parse(readFileSync(args[0], "utf-8"));
+    const strings = savedStrings(lang);
+    writeFileSync(target, renderHtml(data, template, { lang, strings }));
+    const untranslated =
+      lang === "en" ? 0 : catalog(template, data).filter((s) => !strings[s]).length;
+    return print({ html: target, lang, untranslated });
+  }
+  if (command === "strings" && args[0]) {
+    const lang = languageOf(args);
+    const strings = savedStrings(lang);
+    const all = catalog(template, JSON.parse(readFileSync(args[0], "utf-8")));
+    return print({ lang, missing: lang === "en" ? [] : all.filter((s) => !strings[s]) });
+  }
+  if (command === "save-strings" && args[0]) {
+    const lang = languageOf(args);
+    const { strings, rejected } = cleanStrings(JSON.parse(readFileSync(args[0], "utf-8")));
+    mkdirSync(stringsDir(), { recursive: true });
+    const merged = { ...savedStrings(lang), ...strings };
+    writeFileSync(stringsPath(lang), JSON.stringify(merged));
+    return print({ lang, saved: Object.keys(strings).length, rejected });
   }
   throw new Error(
-    "Usage: prepare <file> --genre <genre> | unit <no> | measure | verify <file> | render <data.json> --output <file>",
+    "Usage: prepare <file> --genre <genre> | unit <no> | measure | verify <file> | render <data.json> --output <file> [--lang <tag>] | strings <data.json> [--lang <tag>] | save-strings <file> [--lang <tag>]",
   );
 }
 

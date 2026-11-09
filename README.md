@@ -1,5 +1,7 @@
 # Publishify Masthead
 
+<p align="center"><img src="assets/board-table.svg" alt="The Masthead board table: the Editor-in-Chief at the centre, eleven AI roles around it with live status (sample data)" width="680"></p>
+
 **Your AI editorial board.** Reads your book like a publishing house staff, gives evidence-based notes and shows the result as a visual dashboard. It never changes your text without your approval.
 
 > Early development. Not ready for use yet.

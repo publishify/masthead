@@ -1,4 +1,6 @@
 /** Places the dashboard data returned by the server into the template. Uses no model. */
+import { cleanStrings, type Interface, normalizeLang } from "./strings";
+
 export type DashboardData = {
   project: { title?: string; demo?: boolean };
   summary: Record<string, unknown>;
@@ -45,8 +47,10 @@ const embed = (data: unknown) =>
     .replaceAll(String.fromCharCode(0x2028), "\\u2028")
     .replaceAll(String.fromCharCode(0x2029), "\\u2029");
 
-export function renderHtml(data: unknown, template: string): string {
+export function renderHtml(data: unknown, template: string, ui?: Interface): string {
   validate(data);
   if (!template.includes(PLACEHOLDER)) throw new Error("Data placeholder not found in template.");
-  return template.split(PLACEHOLDER).join(embed(data));
+  const lang = ui ? normalizeLang(ui.lang) : "en";
+  const payload = ui ? { ...data, ui: { lang, strings: cleanStrings(ui.strings).strings } } : data;
+  return template.split(PLACEHOLDER).join(embed(payload));
 }

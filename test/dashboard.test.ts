@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { renderHtml } from "../scripts/dashboard/render";
+import { catalog, cleanStrings, normalizeLang } from "../scripts/dashboard/strings";
 
 const template = readFileSync("scripts/dashboard/template.html", "utf-8");
 const sample = JSON.parse(readFileSync("test/fixtures/dashboard-sample.json", "utf-8"));
@@ -34,5 +35,32 @@ describe("dashboard", () => {
 
   it("carries no verdict in the template", () => {
     expect(template).not.toMatch(/A\.verdict/);
+  });
+
+  it("lists the interface text from the template and the data", () => {
+    const list = catalog(template, sample);
+    expect(list).toContain("Print");
+    expect(list).toContain("{name}: not run");
+    expect(list).toContain("Key decisions");
+    expect(list).toContain("Preference");
+    expect(list).toContain("Ordinary World");
+    expect(list).not.toContain("Publishify Masthead");
+    expect(list).not.toContain("The hero hesitates after the call.");
+  });
+
+  it("embeds a saved translation and the language", () => {
+    const html = renderHtml(sample, template, { lang: "DE", strings: { Print: "Drucken" } });
+    expect(html).toContain('"lang":"de"');
+    expect(html).toContain("Drucken");
+  });
+
+  it("drops a translation that loses a slot", () => {
+    const result = cleanStrings({ "{name}: not run": "not run", Print: "Drucken", Count: "" });
+    expect(result.strings).toEqual({ Print: "Drucken" });
+    expect(result.rejected).toEqual(["{name}: not run", "Count"]);
+  });
+
+  it("rejects a malformed language tag", () => {
+    expect(() => normalizeLang("not a language")).toThrow();
   });
 });

@@ -2,6 +2,16 @@
   "name": "masthead",
   "version": "0.0.0",
   "description": "Publishify Masthead: your AI editorial board.",
-  "author": { "name": "Publishify" },
-  "homepage": "https://publishify.app"
+  "author": {
+    "name": "Publishify"
+  },
+  "homepage": "https://publishify.app",
+  "userConfig": {
+    "language": {
+      "type": "string",
+      "title": "Dashboard language",
+      "description": "Language tag for the dashboard, such as en, de or fr. Leave empty to follow the language of your conversation.",
+      "required": false
+    }
+  }
 }

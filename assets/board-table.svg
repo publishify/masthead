@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" role="img" aria-labelledby="t d">
+<title id="t">The Masthead board table</title><desc id="d">Round table with the Editor-in-Chief in the centre and eleven AI roles on screens around it, shown with sample status.</desc>
+<style>
+text{font-family:ui-sans-serif,-apple-system,'Segoe UI',sans-serif}
+@media (prefers-reduced-motion:no-preference){
+.flow{stroke-dasharray:7 9;animation:fl 1.3s linear infinite}
+@keyframes fl{to{stroke-dashoffset:-32}}
+.bk{animation:b 1.1s steps(2,end) infinite}
+@keyframes b{50%{opacity:.2}}
+.sway{transform-box:fill-box;transform-origin:50% 0;animation:sway 5.4s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:translate(-1.6px,0) rotate(-1.5deg)}30%{transform:translate(1.2px,-.6px) rotate(1deg)}55%{transform:translate(2px,.3px) rotate(1.7deg)}80%{transform:translate(-.6px,.4px) rotate(-.6deg)}}
+}
+</style>
+<rect width="680" height="420" rx="14" fill="#0a0f0b"/>
+<text x="340" y="32" text-anchor="middle" font-size="20" style="font-family:Georgia,'Times New Roman',serif" fill="#eef2ec">The Masthead</text>
+<text x="340" y="52" text-anchor="middle" font-size="12" fill="#98a595">Your AI editorial board, live</text>
+<ellipse cx="340" cy="205" rx="292" ry="140" fill="#101912" stroke="#243024"/>
+<ellipse cx="340" cy="205" rx="240" ry="116" fill="#2a241a" stroke="#3a2e1c"/>
+<ellipse cx="340" cy="205" rx="226" ry="106" fill="#1a1712" stroke="none"/>
+<line x1="401.42" y1="107.13" x2="340" y2="205" stroke="#a9cf9c" stroke-width="1.2" opacity=".5"/>
+<line x1="504.75" y1="138.2" x2="340" y2="205" stroke="#a9cf9c" stroke-width="1.2" opacity=".5" class="flow"/>
+<g class="sway" style="animation-duration:4.8s;animation-delay:-1.92s">
+<rect x="378.42" y="87.13" width="46" height="30" rx="3" fill="#111a11" stroke="#7fb571" stroke-width="1.1"/>
+<text x="401.42" y="108.13" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#7fb571">✓</text>
+<text x="401.42" y="131.13" text-anchor="middle" font-size="11" fill="#eef2ec">Summarizer</text></g>
+<g class="sway" style="animation-duration:4.8s;animation-delay:-1.28s">
+<rect x="255.58" y="87.13" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
+<text x="278.58" y="108.13" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
+<text x="278.58" y="131.13" text-anchor="middle" font-size="11" fill="#98a595">Advisor</text></g>
+<g class="sway" style="animation-duration:5.85s;animation-delay:-3.36s">
+<rect x="481.75" y="118.2" width="46" height="30" rx="3" fill="#172417" stroke="#a9cf9c" stroke-width="1.1"/>
+<text x="504.75" y="139.2" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#a9cf9c" class="bk">></text>
+<text x="504.75" y="162.2" text-anchor="middle" font-size="11" fill="#eef2ec">Developmental</text></g>
+<g class="sway" style="animation-duration:5.5s;animation-delay:-2.09s">
+<rect x="152.25" y="118.2" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
+<text x="175.25" y="139.2" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
+<text x="175.25" y="162.2" text-anchor="middle" font-size="11" fill="#98a595">Proofreader</text></g>
+<g class="sway" style="animation-duration:5.15s;animation-delay:-4.53s">
+<rect x="532.78" y="170.48" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#98a595" stroke-width="1.1"/>
+<text x="555.78" y="191.48" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
+<text x="555.78" y="214.48" text-anchor="middle" font-size="11" fill="#eef2ec">Copy</text></g>
+<g class="sway" style="animation-duration:6.2s;animation-delay:-0.92s">
+<rect x="101.22" y="170.48" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
+<text x="124.22" y="191.48" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
+<text x="124.22" y="214.48" text-anchor="middle" font-size="11" fill="#98a595">Production</text></g>
+<g class="sway" style="animation-duration:6.2s;animation-delay:-3.09s">
+<rect x="515.3" y="227.37" width="46" height="30" rx="3" fill="#241b0d" stroke="#e0a458" stroke-width="1.1"/>
+<text x="538.3" y="248.37" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">!</text>
+<text x="538.3" y="271.37" text-anchor="middle" font-size="11" fill="#eef2ec">Continuity</text></g>
+<g class="sway" style="animation-duration:5.15s;animation-delay:-2.36s">
+<rect x="118.7" y="227.37" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
+<text x="141.7" y="248.37" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
+<text x="141.7" y="271.37" text-anchor="middle" font-size="11" fill="#98a595">Academic</text></g>
+<g class="sway" style="animation-duration:5.5s;animation-delay:-3.57s">
+<rect x="434.86" y="270.81" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#98a595" stroke-width="1.1"/>
+<text x="457.86" y="291.81" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
+<text x="457.86" y="314.81" text-anchor="middle" font-size="11" fill="#eef2ec">Evidence</text></g>
+<g class="sway" style="animation-duration:5.85s;animation-delay:-1.88s">
+<rect x="199.14" y="270.81" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
+<text x="222.14" y="291.81" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
+<text x="222.14" y="314.81" text-anchor="middle" font-size="11" fill="#98a595">Line</text></g>
+<g class="sway" style="animation-duration:4.8s;animation-delay:-1.6s">
+<rect x="317.0" y="287.0" width="46" height="30" rx="3" fill="#050806" stroke="#2d3a2e" stroke-width="1.1"/>
+<text x="340.0" y="308.0" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#2d3a2e">></text>
+<text x="340.0" y="331.0" text-anchor="middle" font-size="11" fill="#eef2ec">Beta Readers</text></g>
+<ellipse cx="340" cy="205" rx="66" ry="28" fill="#172417" stroke="#a9cf9c" stroke-width="1.2"/>
+<text x="340" y="209" text-anchor="middle" font-size="12" fill="#a9cf9c">Editor-in-Chief</text>
+<text x="112" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#a9cf9c">></text>
+<text x="125" y="390" font-size="12" fill="#eef2ec">Working</text>
+<text x="201" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
+<text x="214" y="390" font-size="12" fill="#eef2ec">Queued</text>
+<text x="283" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#7fb571">✓</text>
+<text x="296" y="390" font-size="12" fill="#eef2ec">Done</text>
+<text x="351" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">!</text>
+<text x="364" y="390" font-size="12" fill="#eef2ec">Returned</text>
+<text x="447" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#2d3a2e">></text>
+<text x="460" y="390" font-size="12" fill="#98a595">Asleep</text>
+<text x="529" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
+<text x="542" y="390" font-size="12" fill="#98a595">Not started</text>
+</svg>
