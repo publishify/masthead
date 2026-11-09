@@ -1,5 +1,5 @@
 ---
-description: Show the latest editorial board report for this book.
+description: See when this book's latest report was made and the main decisions it raised.
 model: haiku
 ---
 

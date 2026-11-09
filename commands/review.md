@@ -1,5 +1,5 @@
 ---
-description: Run the editorial board on a book file.
+description: Have the editorial board read your book and open the visual report. Add the file name, such as book.docx (also .epub, .md or .txt).
 argument-hint: <file> [genre] [title]
 model: haiku
 ---

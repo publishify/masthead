@@ -1,8 +1,8 @@
 {
   "name": "masthead",
   "displayName": "Publishify Masthead",
-  "version": "0.1.1",
-  "description": "An AI editorial board for your book. It reads like a publishing house staff, gives evidence-based notes and shows the result on a visual dashboard. It never changes your text.",
+  "version": "0.1.2",
+  "description": "Give your book an AI editorial board: notes backed by quotes from your own text, a check for contradictions in age, date and place, simulated reader reactions, and a visual report showing where your book stands on The Wayfarer's Seven Stages. Publishify never receives your full text, and the board never changes it.",
   "author": {
     "name": "Publishify",
     "email": "info@publishify.app",
@@ -26,8 +26,8 @@
   "userConfig": {
     "language": {
       "type": "string",
-      "title": "Dashboard language",
-      "description": "Language tag for the dashboard, such as en, de or fr. Leave empty to follow the language of your conversation.",
+      "title": "Report language",
+      "description": "Leave empty to use the language of your conversation. To choose another, enter a code such as tr, en, de or fr.",
       "required": false
     }
   }
