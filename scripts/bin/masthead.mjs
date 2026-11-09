@@ -1,6 +1,6 @@
 // scripts/text/cli.ts
-import { existsSync, mkdirSync, readFileSync as readFileSync2, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, mkdirSync, readFileSync as readFileSync2, rmSync, writeFileSync } from "node:fs";
+import { join, resolve as resolve2 } from "node:path";
 
 // shared/types.ts
 var GENRES = [
@@ -891,9 +891,37 @@ var languageOf = (args) => normalizeLang(option(args, "--lang") || process.env.C
 var stringsDir = () => process.env.CLAUDE_PLUGIN_DATA || WORK_DIR;
 var stringsPath = (lang) => join(stringsDir(), `strings.${lang}.json`);
 var savedStrings = (lang) => existsSync(stringsPath(lang)) ? JSON.parse(readFileSync2(stringsPath(lang), "utf-8")) : {};
+var workFile = (name) => join(WORK_DIR, name);
+var readJson = (name) => existsSync(workFile(name)) ? JSON.parse(readFileSync2(workFile(name), "utf-8")) : void 0;
+function openBook(file) {
+  mkdirSync(WORK_DIR, { recursive: true });
+  const current = resolve2(file);
+  const previous = readJson("source.json")?.file;
+  const books = readJson("books.json") ?? {};
+  const bookId = readJson("book.json")?.book_id;
+  if (previous && bookId) books[previous] = bookId;
+  if (previous !== current) {
+    for (const name of [
+      "units",
+      "summaries",
+      "out",
+      "book.json",
+      "dashboard.json",
+      "strings.json"
+    ]) {
+      rmSync(workFile(name), { recursive: true, force: true });
+    }
+    const known = books[current];
+    if (known) writeFileSync(workFile("book.json"), JSON.stringify({ book_id: known }));
+  }
+  writeFileSync(workFile("source.json"), JSON.stringify({ file: current }));
+  writeFileSync(workFile("books.json"), JSON.stringify(books));
+  return books[current];
+}
 async function prepare(file, genre) {
   const raw = readFile(file);
   const { units, confidence } = split(raw, genre);
+  const bookId = openBook(file);
   mkdirSync(join(WORK_DIR, "units"), { recursive: true });
   const hashes = [];
   const list = [];
@@ -917,7 +945,12 @@ async function prepare(file, genre) {
     units: list
   };
   writeFileSync(join(WORK_DIR, "manifest.json"), JSON.stringify(manifest));
-  print({ manifest, confidence, language: detectLanguage(raw.text) });
+  print({
+    manifest,
+    confidence,
+    language: detectLanguage(raw.text),
+    ...bookId ? { book_id: bookId } : {}
+  });
 }
 async function verify(file) {
   const notes = JSON.parse(readFileSync2(file, "utf-8"));

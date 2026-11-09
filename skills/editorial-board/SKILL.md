@@ -20,7 +20,7 @@ The text tool is `node "${CLAUDE_PLUGIN_ROOT}/scripts/bin/masthead.mjs"`, called
 
 1. Ask for the file and genre if they are missing. Genres are listed in the `prepare` error message.
 2. Run `TOOL prepare <file> --genre <genre>`. It prints `manifest`, `confidence` and `language`. If `confidence` is low, tell the author how the book was divided and ask whether that looks right. If `language` is `und`, ask the author which language the book is in.
-3. Call `save_book` with the title, genre, language and `manifest` exactly as printed. Save `{"book_id": ...}` to `.masthead/book.json`. If that file already exists, send its `book_id` too.
+3. Call `save_book` with the title, genre, language and `manifest` exactly as printed. If `prepare` printed a `book_id`, send it too; otherwise this is a new book. Save `{"book_id": ...}` from the reply to `.masthead/book.json`.
 4. If the author asked for only some checks, pass those roles as `roles` in the next step.
 5. Call `next_step` with the `book_id`. If it returns `NO_LICENSE`, tell the author this account has no Masthead access and stop.
 

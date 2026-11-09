@@ -1,5 +1,5 @@
 import { spawnSync } from "node:child_process";
-import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -126,6 +126,28 @@ describe("check command", () => {
     expect(note.unit).toBe(1);
     expect(note.evidence[0].unit).toBe(1);
     expect(note.verification.method).toBe("script");
+  });
+
+  it("keeps manuscripts in one folder apart", () => {
+    const dir = mkdtempSync(join(tmpdir(), "masthead-"));
+    writeFileSync(join(dir, "a.md"), "First book.\n");
+    writeFileSync(join(dir, "b.md"), "Second book.\n");
+    const summary = join(dir, ".masthead/summaries/1.json");
+    const prepare = (file: string) => run(["prepare", file, "--genre", "other"], dir);
+
+    expect(prepare("a.md").book_id).toBeUndefined();
+    writeFileSync(join(dir, ".masthead/book.json"), JSON.stringify({ book_id: "book-a" }));
+    mkdirSync(join(dir, ".masthead/summaries"), { recursive: true });
+    writeFileSync(summary, "{}");
+
+    expect(prepare("a.md").book_id).toBe("book-a");
+    expect(existsSync(summary)).toBe(true);
+
+    expect(prepare("b.md").book_id).toBeUndefined();
+    expect(existsSync(summary)).toBe(false);
+    expect(existsSync(join(dir, ".masthead/book.json"))).toBe(false);
+
+    expect(prepare("a.md").book_id).toBe("book-a");
   });
 
   it("recognises the language of a manuscript", () => {

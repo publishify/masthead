@@ -1,5 +1,5 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { join, resolve } from "node:path";
 import type { Genre, Hash, Manifest } from "../../shared/types";
 import { GENRES } from "../../shared/types";
 import { renderHtml } from "../dashboard/render";
@@ -32,9 +32,44 @@ const stringsPath = (lang: string) => join(stringsDir(), `strings.${lang}.json`)
 const savedStrings = (lang: string): Strings =>
   existsSync(stringsPath(lang)) ? JSON.parse(readFileSync(stringsPath(lang), "utf-8")) : {};
 
+const workFile = (name: string) => join(WORK_DIR, name);
+const readJson = <T>(name: string): T | undefined =>
+  existsSync(workFile(name)) ? (JSON.parse(readFileSync(workFile(name), "utf-8")) as T) : undefined;
+
+/**
+ * A folder can hold several manuscripts. Work files belong to one of them, so they are
+ * cleared on a switch; each manuscript keeps its own book id and returns to it later.
+ */
+function openBook(file: string): string | undefined {
+  mkdirSync(WORK_DIR, { recursive: true });
+  const current = resolve(file);
+  const previous = readJson<{ file: string }>("source.json")?.file;
+  const books = readJson<Record<string, string>>("books.json") ?? {};
+  const bookId = readJson<{ book_id: string }>("book.json")?.book_id;
+  if (previous && bookId) books[previous] = bookId;
+  if (previous !== current) {
+    for (const name of [
+      "units",
+      "summaries",
+      "out",
+      "book.json",
+      "dashboard.json",
+      "strings.json",
+    ]) {
+      rmSync(workFile(name), { recursive: true, force: true });
+    }
+    const known = books[current];
+    if (known) writeFileSync(workFile("book.json"), JSON.stringify({ book_id: known }));
+  }
+  writeFileSync(workFile("source.json"), JSON.stringify({ file: current }));
+  writeFileSync(workFile("books.json"), JSON.stringify(books));
+  return books[current];
+}
+
 async function prepare(file: string, genre: Genre) {
   const raw = readFile(file);
   const { units, confidence } = split(raw, genre);
+  const bookId = openBook(file);
   mkdirSync(join(WORK_DIR, "units"), { recursive: true });
   const hashes: Hash[] = [];
   const list: Manifest["units"] = [];
@@ -58,7 +93,12 @@ async function prepare(file: string, genre: Genre) {
     units: list,
   };
   writeFileSync(join(WORK_DIR, "manifest.json"), JSON.stringify(manifest));
-  print({ manifest, confidence, language: detectLanguage(raw.text) });
+  print({
+    manifest,
+    confidence,
+    language: detectLanguage(raw.text),
+    ...(bookId ? { book_id: bookId } : {}),
+  });
 }
 
 async function verify(file: string) {
