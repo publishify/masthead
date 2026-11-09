@@ -125,6 +125,7 @@ async function runReview(input, deps) {
   let cost = 0;
   let report;
   const breakdown = [];
+  const incomplete = [];
   const prepared = await deps.prepare(input.file, input.genre);
   const saved = ensure(
     await deps.callTool("save_book", {
@@ -205,7 +206,10 @@ ${source}${feedback}`;
 ${JSON.stringify(reply.rejections)}`
       );
     }
-    if (reply.outcome === "reported") deps.log(`${step.role} could not be completed`);
+    if (reply.outcome === "reported") {
+      deps.log(`${step.role} could not be completed: ${JSON.stringify(reply.rejections)}`);
+      incomplete.push(`${step.role}${step.unit ? ` ${step.unit}` : ""}`);
+    }
     if (reply.next) await handle(reply.next);
   }
   async function handle(reply) {
@@ -223,6 +227,7 @@ ${JSON.stringify(reply.rejections)}`
     cost_usd: Math.round((cost + done.costUsd) * 100) / 100,
     seconds: Math.round((Date.now() - started) / 1e3),
     breakdown,
+    incomplete,
     translation_usd: Math.round(done.costUsd * 1e3) / 1e3,
     decisions: (report.dashboard.analysis?.decisions ?? []).map((d) => d.text)
   };

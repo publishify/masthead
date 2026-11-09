@@ -63,6 +63,7 @@ export async function runReview(
   let cost = 0;
   let report: Reply | undefined;
   const breakdown: { step: string; seconds: number; cost_usd: number }[] = [];
+  const incomplete: string[] = [];
   const prepared = await deps.prepare(input.file, input.genre);
   const saved = ensure(
     await deps.callTool("save_book", {
@@ -144,7 +145,10 @@ export async function runReview(
         `\n\n# Your last answer was refused\n${JSON.stringify(reply.rejections)}`,
       );
     }
-    if (reply.outcome === "reported") deps.log(`${step.role} could not be completed`);
+    if (reply.outcome === "reported") {
+      deps.log(`${step.role} could not be completed: ${JSON.stringify(reply.rejections)}`);
+      incomplete.push(`${step.role}${step.unit ? ` ${step.unit}` : ""}`);
+    }
     if (reply.next) await handle(reply.next);
   }
 
@@ -165,6 +169,7 @@ export async function runReview(
     cost_usd: Math.round((cost + done.costUsd) * 100) / 100,
     seconds: Math.round((Date.now() - started) / 1000),
     breakdown,
+    incomplete,
     translation_usd: Math.round(done.costUsd * 1000) / 1000,
     decisions: (report.dashboard.analysis?.decisions ?? []).map((d) => d.text),
   };

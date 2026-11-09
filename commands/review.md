@@ -14,4 +14,4 @@ Start this one command with the Bash tool using `run_in_background: true`, then 
 
 `node "${CLAUDE_PLUGIN_ROOT}/scripts/bin/masthead.mjs" run "<file>" --genre <genre> --title "<title>"`
 
-When it finishes it prints JSON. In the language the author uses, in plain words, say the report is open, give up to three `decisions`, the minutes it took and `cost_usd`, and say these are AI readings and reader cards are simulations. Never say the book is or is not ready. If it printed `NO_LICENSE`, say this account has no Masthead access.
+When it finishes it prints JSON. In the language the author uses, in plain words, say the report is open, give up to three `decisions`, the minutes it took and `cost_usd`, and say these are AI readings and reader cards are simulations. Never say the book is or is not ready. If `incomplete` is not empty, tell the author plainly which reading could not be completed. If it printed `NO_LICENSE`, say this account has no Masthead access.
