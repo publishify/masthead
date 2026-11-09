@@ -19,7 +19,7 @@ const AUTH_DIR = join(homedir(), ".config", "masthead");
 const AUTH_FILE = join(AUTH_DIR, "auth.json");
 const LOGIN_TIMEOUT_MS = 300_000;
 const MODEL_TIMEOUT_MS = 600_000;
-const NO_TOOLS = "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill";
+const MODEL_ROLE = "Follow the instructions in the message. Return only what they ask for.";
 
 type Auth = { client_id: string; access_token: string; refresh_token?: string; expires_at: number };
 type Tokens = { access_token: string; refresh_token?: string; expires_in?: number };
@@ -190,8 +190,13 @@ export function askModel(prompt: string, model = "sonnet") {
         "--output-format",
         "json",
         "--strict-mcp-config",
-        "--disallowedTools",
-        NO_TOOLS,
+        "--tools",
+        "",
+        "--setting-sources",
+        "project",
+        "--no-session-persistence",
+        "--system-prompt",
+        MODEL_ROLE,
       ],
       { cwd: mkdtempSync(join(tmpdir(), "masthead-")), env },
     );

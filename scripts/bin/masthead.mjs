@@ -237,7 +237,7 @@ var AUTH_DIR = join(homedir(), ".config", "masthead");
 var AUTH_FILE = join(AUTH_DIR, "auth.json");
 var LOGIN_TIMEOUT_MS = 3e5;
 var MODEL_TIMEOUT_MS = 6e5;
-var NO_TOOLS = "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch,Agent,Task,Skill";
+var MODEL_ROLE = "Follow the instructions in the message. Return only what they ask for.";
 var base64url = (bytes) => bytes.toString("base64url");
 function openInBrowser(target) {
   const command = platform() === "darwin" ? "open" : platform() === "win32" ? "explorer" : "xdg-open";
@@ -389,8 +389,13 @@ function askModel(prompt, model = "sonnet") {
         "--output-format",
         "json",
         "--strict-mcp-config",
-        "--disallowedTools",
-        NO_TOOLS
+        "--tools",
+        "",
+        "--setting-sources",
+        "project",
+        "--no-session-persistence",
+        "--system-prompt",
+        MODEL_ROLE
       ],
       { cwd: mkdtempSync(join(tmpdir(), "masthead-")), env }
     );

@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" role="img" aria-labelledby="t d">
-<title id="t">The Masthead board table</title><desc id="d">Round table with the Editor-in-Chief in the centre and eleven AI roles on screens around it, shown with sample status.</desc>
+<title id="t">The Masthead board table</title><desc id="d">The Editor-in-Chief script at the centre, three AI readings and four scripts that use no tokens around it, shown with sample status.</desc>
 <style>
 text{font-family:ui-sans-serif,-apple-system,'Segoe UI',sans-serif}
 @media (prefers-reduced-motion:no-preference){
@@ -17,64 +17,50 @@ text{font-family:ui-sans-serif,-apple-system,'Segoe UI',sans-serif}
 <ellipse cx="340" cy="205" rx="292" ry="140" fill="#101912" stroke="#243024"/>
 <ellipse cx="340" cy="205" rx="240" ry="116" fill="#2a241a" stroke="#3a2e1c"/>
 <ellipse cx="340" cy="205" rx="226" ry="106" fill="#1a1712" stroke="none"/>
-<line x1="401.42" y1="107.13" x2="340" y2="205" stroke="#a9cf9c" stroke-width="1.2" opacity=".5"/>
-<line x1="504.75" y1="138.2" x2="340" y2="205" stroke="#a9cf9c" stroke-width="1.2" opacity=".5" class="flow"/>
-<g class="sway" style="animation-duration:4.8s;animation-delay:-1.92s">
-<rect x="378.42" y="87.13" width="46" height="30" rx="3" fill="#111a11" stroke="#7fb571" stroke-width="1.1"/>
-<text x="401.42" y="108.13" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#7fb571">✓</text>
-<text x="401.42" y="131.13" text-anchor="middle" font-size="11" fill="#eef2ec">Summarizer</text></g>
-<g class="sway" style="animation-duration:4.8s;animation-delay:-1.28s">
-<rect x="255.58" y="87.13" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
-<text x="278.58" y="108.13" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
-<text x="278.58" y="131.13" text-anchor="middle" font-size="11" fill="#98a595">Advisor</text></g>
-<g class="sway" style="animation-duration:5.85s;animation-delay:-3.36s">
-<rect x="481.75" y="118.2" width="46" height="30" rx="3" fill="#172417" stroke="#a9cf9c" stroke-width="1.1"/>
-<text x="504.75" y="139.2" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#a9cf9c" class="bk">></text>
-<text x="504.75" y="162.2" text-anchor="middle" font-size="11" fill="#eef2ec">Developmental</text></g>
-<g class="sway" style="animation-duration:5.5s;animation-delay:-2.09s">
-<rect x="152.25" y="118.2" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
-<text x="175.25" y="139.2" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
-<text x="175.25" y="162.2" text-anchor="middle" font-size="11" fill="#98a595">Proofreader</text></g>
-<g class="sway" style="animation-duration:5.15s;animation-delay:-4.53s">
-<rect x="532.78" y="170.48" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#98a595" stroke-width="1.1"/>
-<text x="555.78" y="191.48" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
-<text x="555.78" y="214.48" text-anchor="middle" font-size="11" fill="#eef2ec">Copy</text></g>
-<g class="sway" style="animation-duration:6.2s;animation-delay:-0.92s">
-<rect x="101.22" y="170.48" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
-<text x="124.22" y="191.48" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
-<text x="124.22" y="214.48" text-anchor="middle" font-size="11" fill="#98a595">Production</text></g>
-<g class="sway" style="animation-duration:6.2s;animation-delay:-3.09s">
-<rect x="515.3" y="227.37" width="46" height="30" rx="3" fill="#241b0d" stroke="#e0a458" stroke-width="1.1"/>
-<text x="538.3" y="248.37" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">!</text>
-<text x="538.3" y="271.37" text-anchor="middle" font-size="11" fill="#eef2ec">Continuity</text></g>
-<g class="sway" style="animation-duration:5.15s;animation-delay:-2.36s">
-<rect x="118.7" y="227.37" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
-<text x="141.7" y="248.37" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
-<text x="141.7" y="271.37" text-anchor="middle" font-size="11" fill="#98a595">Academic</text></g>
-<g class="sway" style="animation-duration:5.5s;animation-delay:-3.57s">
-<rect x="434.86" y="270.81" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#98a595" stroke-width="1.1"/>
-<text x="457.86" y="291.81" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
-<text x="457.86" y="314.81" text-anchor="middle" font-size="11" fill="#eef2ec">Evidence</text></g>
-<g class="sway" style="animation-duration:5.85s;animation-delay:-1.88s">
-<rect x="199.14" y="270.81" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#253126" stroke-width="1.1"/>
-<text x="222.14" y="291.81" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
-<text x="222.14" y="314.81" text-anchor="middle" font-size="11" fill="#98a595">Line</text></g>
-<g class="sway" style="animation-duration:4.8s;animation-delay:-1.6s">
-<rect x="317.0" y="287.0" width="46" height="30" rx="3" fill="#050806" stroke="#2d3a2e" stroke-width="1.1"/>
-<text x="340.0" y="308.0" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#2d3a2e">></text>
-<text x="340.0" y="331.0" text-anchor="middle" font-size="11" fill="#eef2ec">Beta Readers</text></g>
-<ellipse cx="340" cy="205" rx="66" ry="28" fill="#172417" stroke="#a9cf9c" stroke-width="1.2"/>
-<text x="340" y="209" text-anchor="middle" font-size="12" fill="#a9cf9c">Editor-in-Chief</text>
-<text x="112" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#a9cf9c">></text>
-<text x="125" y="390" font-size="12" fill="#eef2ec">Working</text>
-<text x="201" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
-<text x="214" y="390" font-size="12" fill="#eef2ec">Queued</text>
-<text x="283" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#7fb571">✓</text>
-<text x="296" y="390" font-size="12" fill="#eef2ec">Done</text>
-<text x="351" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">!</text>
-<text x="364" y="390" font-size="12" fill="#eef2ec">Returned</text>
-<text x="447" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#2d3a2e">></text>
-<text x="460" y="390" font-size="12" fill="#98a595">Asleep</text>
-<text x="529" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#253126">></text>
-<text x="542" y="390" font-size="12" fill="#98a595">Not started</text>
+<line x1="434.59" y1="113.1" x2="340" y2="205" stroke="#a9cf9c" stroke-width="1.2" opacity=".45" class="flow"/>
+<line x1="340.0" y1="307.0" x2="340" y2="205" stroke="#e0a458" stroke-width="1.2" opacity=".45"/>
+<line x1="169.56" y1="268.6" x2="340" y2="205" stroke="#e0a458" stroke-width="1.2" opacity=".45"/>
+<line x1="127.47" y1="182.3" x2="340" y2="205" stroke="#e0a458" stroke-width="1.2" opacity=".45"/>
+<line x1="245.41" y1="113.1" x2="340" y2="205" stroke="#e0a458" stroke-width="1.2" opacity=".45"/>
+<g class="sway" style="animation-duration:4.8s;animation-delay:-2.14s">
+<rect x="411.59" y="93.1" width="46" height="30" rx="3" fill="#172417" stroke="#a9cf9c" stroke-width="1.1"/>
+<text x="434.59" y="114.1" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#a9cf9c" class="bk">></text>
+<text x="434.59" y="137.1" text-anchor="middle" font-size="11" fill="#eef2ec">Editor</text></g>
+<g class="sway" style="animation-duration:5.85s;animation-delay:-1.96s">
+<rect x="222.41" y="93.1" width="46" height="30" rx="3" fill="#241b0d" stroke="#e0a458" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="245.41" y="114.1" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">{}</text>
+<text x="245.41" y="137.1" text-anchor="middle" font-size="11" fill="#eef2ec">Measure</text></g>
+<g class="sway" style="animation-duration:5.85s;animation-delay:-3.71s">
+<rect x="529.53" y="162.3" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#98a595" stroke-width="1.1"/>
+<text x="552.53" y="183.3" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
+<text x="552.53" y="206.3" text-anchor="middle" font-size="11" fill="#eef2ec">Auditor</text></g>
+<g class="sway" style="animation-duration:4.8s;animation-delay:-0.39s">
+<rect x="104.47" y="162.3" width="46" height="30" rx="3" fill="#241b0d" stroke="#e0a458" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="127.47" y="183.3" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">{}</text>
+<text x="127.47" y="206.3" text-anchor="middle" font-size="11" fill="#eef2ec">Quote Check</text></g>
+<g class="sway" style="animation-duration:5.15s;animation-delay:-4.37s">
+<rect x="487.44" y="248.6" width="46" height="30" rx="3" fill="#0a0f0b" stroke="#98a595" stroke-width="1.1"/>
+<text x="510.44" y="269.6" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
+<text x="510.44" y="292.6" text-anchor="middle" font-size="11" fill="#eef2ec">Reader Panel</text></g>
+<g class="sway" style="animation-duration:5.5s;animation-delay:-1.98s">
+<rect x="146.56" y="248.6" width="46" height="30" rx="3" fill="#241b0d" stroke="#e0a458" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="169.56" y="269.6" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">{}</text>
+<text x="169.56" y="292.6" text-anchor="middle" font-size="11" fill="#eef2ec">Scorecard</text></g>
+<g class="sway" style="animation-duration:6.2s;animation-delay:-2.05s">
+<rect x="317.0" y="287.0" width="46" height="30" rx="3" fill="#241b0d" stroke="#e0a458" stroke-width="1.1" stroke-dasharray="4 3"/>
+<text x="340.0" y="308.0" text-anchor="middle" font-size="14" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">{}</text>
+<text x="340.0" y="331.0" text-anchor="middle" font-size="11" fill="#eef2ec">Dashboard</text></g>
+<ellipse cx="340" cy="205" rx="72" ry="30" fill="#172417" stroke="#a9cf9c" stroke-width="1.2"/>
+<text x="340" y="205" text-anchor="middle" font-size="12" fill="#a9cf9c">Editor-in-Chief</text>
+<text x="340" y="219" text-anchor="middle" font-size="10" fill="#98a595">script · 0 tokens</text>
+<text x="86" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#a9cf9c">></text>
+<text x="104" y="390" font-size="12" fill="#eef2ec">Working</text>
+<text x="181" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#98a595">></text>
+<text x="199" y="390" font-size="12" fill="#eef2ec">Queued</text>
+<text x="269" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#7fb571">✓</text>
+<text x="287" y="390" font-size="12" fill="#eef2ec">Done</text>
+<text x="343" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#e0a458">{}</text>
+<text x="361" y="390" font-size="12" fill="#eef2ec">Script · 0 tokens</text>
+<text x="508" y="390" font-size="12" font-weight="700" style="font-family:ui-monospace,Menlo,monospace" fill="#2d3a2e">></text>
+<text x="526" y="390" font-size="12" fill="#98a595">Asleep</text>
 </svg>
