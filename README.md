@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/publishify-logo.svg" alt="Publishify" width="220"></p>
+
 <p align="center"><img src=".claude-plugin/icon.png" alt="Publishify Masthead icon" width="120"></p>
 
 <h1 align="center">Publishify Masthead</h1>
