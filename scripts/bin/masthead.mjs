@@ -398,11 +398,13 @@ function askModel(prompt, model = "sonnet") {
       output += chunk2;
     });
     child.on("error", () => fail(new Error("CLAUDE_NOT_FOUND")));
-    child.on("close", (code) => {
+    child.on("close", () => {
       clearTimeout(timer);
-      if (code !== 0) return fail(new Error("MODEL_FAILED"));
       try {
         const result = JSON.parse(output);
+        if (result.is_error || result.result === void 0) {
+          return fail(new Error(`MODEL_FAILED: ${String(result.result).slice(0, 160)}`));
+        }
         done({ text: result.result, costUsd: result.total_cost_usd ?? 0 });
       } catch {
         fail(new Error("MODEL_FAILED"));

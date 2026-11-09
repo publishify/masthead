@@ -201,11 +201,18 @@ export function askModel(prompt: string, model = "sonnet") {
       output += chunk;
     });
     child.on("error", () => fail(new Error("CLAUDE_NOT_FOUND")));
-    child.on("close", (code) => {
+    child.on("close", () => {
       clearTimeout(timer);
-      if (code !== 0) return fail(new Error("MODEL_FAILED"));
       try {
-        const result = JSON.parse(output) as { result: string; total_cost_usd?: number };
+        const result = JSON.parse(output) as {
+          result?: string;
+          is_error?: boolean;
+          total_cost_usd?: number;
+        };
+        if (result.is_error || result.result === undefined) {
+          // Claude's own short error, such as a usage limit. It never echoes the book.
+          return fail(new Error(`MODEL_FAILED: ${String(result.result).slice(0, 160)}`));
+        }
         done({ text: result.result, costUsd: result.total_cost_usd ?? 0 });
       } catch {
         fail(new Error("MODEL_FAILED"));
