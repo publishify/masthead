@@ -1,845 +1,116 @@
 {
  "project": {
-  "title": "Eşik · Yayın kurulu görsel provası",
+  "title": "The Waiting Room",
   "demo": true
  },
- "metrics_sha256": "448d225b10d5df71331afc535533a1db850e120a2f849bd5c9ba0a4afe324aba",
+ "metrics_sha256": "sample",
  "summary": {
-  "all_words": 266,
-  "prose_words": 235,
-  "draft_words": 18,
-  "note_words": 13,
-  "chapter_count": 7,
-  "evaluated_chapters": 4,
-  "repetition_words": 235,
-  "sentence_count": 38,
-  "mean_sentence_words": 6.2,
+  "all_words": 800,
+  "prose_words": 800,
+  "draft_words": 0,
+  "note_words": 0,
+  "chapter_count": 2,
+  "evaluated_chapters": 2,
+  "repetition_words": 800,
+  "sentence_count": 64,
+  "mean_sentence_words": 12.5,
   "long_sentences_35": 0
  },
  "lexical": {
   "content_words": [
    {
-    "word": "kapının",
+    "word": "letter",
     "count": 6,
-    "per_1000": 25.53,
     "refs": [
      {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "selin",
-    "count": 5,
-    "per_1000": 21.28,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b1",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b4",
-      "paragraph": 1
-     }
-    ]
-   },
-   {
-    "word": "sokak",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "masanın",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "mektubu",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "önünde",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "uzun",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "süre",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "dükkânı",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b2",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b4",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b4",
-      "paragraph": 1
-     }
-    ]
-   },
-   {
-    "word": "anahtarı",
-    "count": 4,
-    "per_1000": 17.02,
-    "refs": [
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b4",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b4",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "sabah",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     }
-    ]
-   },
-   {
-    "word": "bıraktı",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "bekledi",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3
-     }
-    ]
-   },
-   {
-    "word": "sanki",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "susmuş",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "geldi",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "ona",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   },
-   {
-    "word": "komşusu",
-    "count": 3,
-    "per_1000": 12.77,
-    "refs": [
-     {
-      "chapter": "b3",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 1
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 3
+      "chapter": "c1",
+      "paragraph": 1,
+      "quote": "The letter arrived on Tuesday."
      }
     ]
    }
   ],
   "all_frequent_words": [
    {
-    "word": "kapının",
-    "count": 6
-   },
-   {
-    "word": "selin",
-    "count": 5
-   },
-   {
-    "word": "bir",
-    "count": 5
-   },
-   {
-    "word": "sokak",
-    "count": 4
-   },
-   {
-    "word": "masanın",
-    "count": 4
-   },
-   {
-    "word": "mektubu",
-    "count": 4
-   },
-   {
-    "word": "önünde",
-    "count": 4
-   },
-   {
-    "word": "uzun",
-    "count": 4
-   },
-   {
-    "word": "süre",
-    "count": 4
-   },
-   {
-    "word": "dükkânı",
-    "count": 4
-   },
-   {
-    "word": "anahtarı",
-    "count": 4
-   },
-   {
-    "word": "sabah",
-    "count": 3
-   },
-   {
-    "word": "üzerine",
-    "count": 3
-   },
-   {
-    "word": "bıraktı",
-    "count": 3
-   },
-   {
-    "word": "bekledi",
-    "count": 3
-   },
-   {
-    "word": "sanki",
-    "count": 3
-   },
-   {
-    "word": "susmuş",
-    "count": 3
-   },
-   {
-    "word": "gibi",
-    "count": 3
-   },
-   {
-    "word": "geldi",
-    "count": 3
-   },
-   {
-    "word": "ona",
-    "count": 3
+    "word": "the",
+    "count": 40,
+    "refs": []
    }
   ],
-  "phrases": [
-   {
-    "phrase": "sanki sokak susmuş gibi geldi ona",
-    "words": [
-     "sanki",
-     "sokak",
-     "susmuş",
-     "gibi",
-     "geldi",
-     "ona"
-    ],
-    "count": 3,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 3,
-      "token": 1
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2,
-      "token": 5
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2,
-      "token": 5
-     }
-    ]
-   },
-   {
-    "phrase": "kapının önünde uzun süre",
-    "words": [
-     "kapının",
-     "önünde",
-     "uzun",
-     "süre"
-    ],
-    "count": 4,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2,
-      "token": 21
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 1,
-      "token": 8
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3,
-      "token": 1
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2,
-      "token": 13
-     }
-    ]
-   },
-   {
-    "phrase": "kapının önünde uzun süre bekledi",
-    "words": [
-     "kapının",
-     "önünde",
-     "uzun",
-     "süre",
-     "bekledi"
-    ],
-    "count": 3,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2,
-      "token": 21
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 1,
-      "token": 8
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 3,
-      "token": 1
-     }
-    ]
-   },
-   {
-    "phrase": "mektubu masanın üzerine bıraktı",
-    "words": [
-     "mektubu",
-     "masanın",
-     "üzerine",
-     "bıraktı"
-    ],
-    "count": 3,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 2,
-      "token": 17
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2,
-      "token": 1
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2,
-      "token": 1
-     }
-    ]
-   }
-  ],
-  "sentences": [
-   {
-    "sentence": "Sanki sokak susmuş gibi geldi ona.",
-    "count": 3,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 3
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2
-     }
-    ]
-   }
-  ],
+  "phrases": [],
+  "sentences": [],
   "patterns": [
    {
-    "pattern": "sanki ... gibi",
+    "pattern": "as if ...",
     "count": 3,
-    "refs": [
-     {
-      "chapter": "b1",
-      "paragraph": 3,
-      "example": "Sanki sokak susmuş gibi geldi ona."
-     },
-     {
-      "chapter": "b2",
-      "paragraph": 2,
-      "example": "Sanki sokak susmuş gibi geldi ona."
-     },
-     {
-      "chapter": "b3",
-      "paragraph": 2,
-      "example": "Sanki sokak susmuş gibi geldi ona."
-     }
-    ]
-   },
-   {
-    "pattern": "hem ... hem ...",
-    "count": 1,
-    "refs": [
-     {
-      "chapter": "b2",
-      "paragraph": 2,
-      "example": "Hem kalmak hem gitmek istiyordu."
-     }
-    ]
+    "refs": []
    }
   ]
  },
  "method": {
-  "word_count": "Unicode harf/sayı dizileri sayılır; iç kesme ve tire korunur. Başlıklar ve açıkça dışlanan paragraflar sayılmaz.",
-  "repetitions": "Türkçe I/İ dönüşümü; yüzey biçimi. Kök/ek çözümlemesi yapılmaz. İçerik sözcüğü >=3, 3-6 sözcüklü kalıp >=3, >=6 sözcüklü aynı cümle >=2 tekrar. Sayılar sorun kararı değildir.",
-  "scope": "Değerlendirilen düzyazı; taslak/not/ham metin hariç",
-  "patterns": "Tanımlı bağlaç kalıpları cümle başına bir kez sayılır. Paragraf/cümle bölme otomatik bir yaklaşımdır; dil bilgisel analiz değildir."
+  "word_count": "Sequences of letters and numbers, headings excluded.",
+  "repetitions": "Surface forms only; no stemming.",
+  "scope": "Reviewed prose only",
+  "patterns": "Sentence patterns are counted, not judged."
  },
  "chapters": [
   {
-   "id": "b1",
-   "title": "01 / Mektup",
+   "id": "c1",
+   "title": "Chapter 1",
    "kind": "prose",
    "evaluated": true,
    "locked": false,
-   "word_count": 76,
-   "paragraph_count": 3,
-   "dialogue_paragraphs": 0,
+   "word_count": 420,
+   "paragraph_count": 6,
+   "dialogue_paragraphs": 1,
    "in_repetition_scope": true,
    "review": {
-    "chapter": "b1",
+    "chapter": "c1",
     "status": "green",
-    "note": "Çağrı somut bir haberle geliyor.",
-    "evidence": [
-     {
-      "chapter": "b1",
-      "paragraph": 2,
-      "quote": "Köprü yıkılmadan karşıya geç."
-     }
-    ]
-   }
-  },
-  {
-   "id": "b2",
-   "title": "02 / Bekleyiş",
-   "kind": "prose",
-   "evaluated": true,
-   "locked": false,
-   "word_count": 66,
-   "paragraph_count": 3,
-   "dialogue_paragraphs": 0,
-   "in_repetition_scope": true,
-   "review": {
-    "chapter": "b2",
-    "status": "yellow",
-    "note": "Direnç gerekçesi üzerine tercih kararı var.",
-    "evidence": [
-     {
-      "chapter": "b2",
-      "paragraph": 1,
-      "quote": "Dükkânı bırakamazdı."
-     }
-    ]
-   }
-  },
-  {
-   "id": "b3",
-   "title": "03 / Anahtar",
-   "kind": "prose",
-   "evaluated": true,
-   "locked": false,
-   "word_count": 59,
-   "paragraph_count": 3,
-   "dialogue_paragraphs": 0,
-   "in_repetition_scope": true,
-   "review": {
-    "chapter": "b3",
-    "status": "green",
-    "note": "Yardım ve araç aynı sahnede kuruluyor.",
-    "evidence": [
-     {
-      "chapter": "b3",
-      "paragraph": 1,
-      "quote": "Selin'e bir anahtar uzattı."
-     }
-    ]
-   }
-  },
-  {
-   "id": "b4",
-   "title": "04 / Köprü",
-   "kind": "prose",
-   "evaluated": true,
-   "locked": false,
-   "word_count": 34,
-   "paragraph_count": 2,
-   "dialogue_paragraphs": 0,
-   "in_repetition_scope": true,
-   "review": {
-    "chapter": "b4",
-    "status": "green",
-    "note": "Eşiğin bedeli metinde görünür.",
-    "evidence": [
-     {
-      "chapter": "b4",
-      "paragraph": 2,
-      "quote": "Karşı kıyıya geçtiğinde köprüden bir tahta koptu."
-     }
-    ]
-   }
-  },
-  {
-   "id": "b5",
-   "title": "05 / Ev · taslak",
-   "kind": "draft",
-   "evaluated": false,
-   "locked": false,
-   "word_count": 18,
-   "paragraph_count": 1,
-   "dialogue_paragraphs": 0,
-   "in_repetition_scope": false,
-   "review": {
-    "chapter": "b5",
-    "status": "gray",
-    "note": "Editoryal değerlendirme yapılmadı.",
+    "note": "Reads clearly.",
     "evidence": []
    }
   },
   {
-   "id": "not",
-   "title": "Yazar notu",
-   "kind": "note",
-   "evaluated": false,
+   "id": "c2",
+   "title": "Chapter 2",
+   "kind": "prose",
+   "evaluated": true,
    "locked": false,
-   "word_count": 13,
-   "paragraph_count": 1,
-   "dialogue_paragraphs": 0,
-   "in_repetition_scope": false,
+   "word_count": 380,
+   "paragraph_count": 6,
+   "dialogue_paragraphs": 1,
+   "in_repetition_scope": true,
    "review": {
-    "chapter": "not",
-    "status": "gray",
-    "note": "Editoryal değerlendirme yapılmadı.",
-    "evidence": []
-   }
-  },
-  {
-   "id": "b6",
-   "title": "06 / Devam · planlanan, yazılmadı",
-   "kind": "missing",
-   "evaluated": false,
-   "locked": false,
-   "word_count": null,
-   "paragraph_count": 0,
-   "dialogue_paragraphs": 0,
-   "in_repetition_scope": false,
-   "review": {
-    "chapter": "b6",
-    "status": "red",
-    "note": "Henüz yazılmadı.",
+    "chapter": "c2",
+    "status": "green",
+    "note": "Reads clearly.",
     "evidence": []
    }
   }
  ],
  "analysis": {
   "schema_version": 1,
-  "mode": "kurul",
-  "metrics_sha256": "448d225b10d5df71331afc535533a1db850e120a2f849bd5c9ba0a4afe324aba",
-  "generated_at": "2026-10-19",
-  "coverage_note": "Görsel prova: dört kısa, yapay örnek parça okundu. Beşinci parça taslak, bir yazar notu ve yazılmamış devam ayrı gösterildi. Kullanıcının romanı okunmadı.",
-  "reading_mode": "same_session",
+  "mode": "board",
+  "metrics_sha256": "sample",
+  "generated_at": "2026-11-09",
+  "coverage_note": "Sample data: two short chapters were read.",
+  "reading_mode": "independent",
+  "overview": "The opening works; the main question is whether the waiting earns its length.",
   "current": {
-   "chapter": "b4",
+   "chapter": "c2",
    "campbell": [
-    4
+    2
    ],
    "vogler": [
-    5
+    3
    ],
-   "summary": "Son kanonik olay karşı kıyıya geçiştir. Campbell 4 ve Vogler 5; taslak konumu değiştirmez.",
+   "summary": "The hero hesitates after the call.",
    "evidence": [
     {
-     "chapter": "b4",
+     "chapter": "c2",
      "paragraph": 2,
-     "quote": "Karşı kıyıya geçtiğinde köprüden bir tahta koptu."
+     "quote": "He put the letter away."
     }
    ]
   },
@@ -847,650 +118,460 @@
    "campbell": [
     {
      "id": 1,
-     "name": "Maceraya Çağrı",
-     "function": "Kahramanı bildiği dünyadan koparan olay ya da haber.",
+     "name": "The Call to Adventure",
+     "function": "What this stage does in a story.",
      "status": "green",
      "assessment": "present",
      "chapters": [
-      "b1"
+      "c1"
      ],
-     "note": "Mektup olağan düzeni bozan somut çağrıdır.",
+     "note": "Works in the sections read.",
      "evidence": [
       {
-       "chapter": "b1",
-       "paragraph": 2,
-       "quote": "Köprü yıkılmadan karşıya geç."
+       "chapter": "c1",
+       "paragraph": 1,
+       "quote": "The letter arrived on Tuesday."
       }
      ]
     },
     {
      "id": 2,
-     "name": "Çağrının Reddi",
-     "function": "Kahramanın direnmesi, ertelemesi, kaçınması.",
-     "status": "yellow",
-     "assessment": "revision",
+     "name": "Refusal of the Call",
+     "function": "What this stage does in a story.",
+     "status": "green",
+     "assessment": "present",
      "chapters": [
-      "b2"
+      "c1"
      ],
-     "note": "Direnç var; dükkânı bırakamama gerekçesi soyut kalıyor.",
+     "note": "Works in the sections read.",
      "evidence": [
       {
-       "chapter": "b2",
+       "chapter": "c1",
        "paragraph": 1,
-       "quote": "Dükkânı bırakamazdı."
+       "quote": "The letter arrived on Tuesday."
       }
      ]
     },
     {
      "id": 3,
-     "name": "Doğaüstü Yardım",
-     "function": "Kahramana yol gösteren koruyucu bir figür ya da tılsım. Romanda bir yardımcı, bir rastlantı, bir işaret olabilir.",
-     "status": "green",
-     "assessment": "implicit",
-     "chapters": [
-      "b3"
-     ],
-     "note": "Anahtar veren komşu yardımcı işlevi görüyor; doğaüstü olması gerekmiyor.",
-     "evidence": [
-      {
-       "chapter": "b3",
-       "paragraph": 1,
-       "quote": "Selin'e bir anahtar uzattı."
-      }
-     ]
+     "name": "Supernatural Aid",
+     "function": "What this stage does in a story.",
+     "status": "gray",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
+     "evidence": []
     },
     {
      "id": 4,
-     "name": "İlk Eşiğin Aşılması",
-     "function": "Bilinen dünyanın sınırını geçmek.",
-     "status": "green",
-     "assessment": "present",
-     "chapters": [
-      "b4"
-     ],
-     "note": "Karşı kıyıya geçişin geri dönüşü zorlaştıran bedeli var.",
-     "evidence": [
-      {
-       "chapter": "b4",
-       "paragraph": 2,
-       "quote": "Karşı kıyıya geçtiğinde köprüden bir tahta koptu."
-      }
-     ]
+     "name": "Crossing the First Threshold",
+     "function": "What this stage does in a story.",
+     "status": "gray",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
+     "evidence": []
     },
     {
      "id": 5,
-     "name": "Balinanın Karnı",
-     "function": "Kahramanın eski benliğinin \"öldüğü\", bilinmeyenin içine düştüğü an; ayrılığın tamamlanması.",
+     "name": "Belly of the Whale",
+     "function": "What this stage does in a story.",
      "status": "gray",
-     "assessment": "draft",
-     "chapters": [
-      "b5"
-     ],
-     "note": "Yalnız taslak bulunuyor; kanonik işlev kararı verilmiyor.",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 6,
-     "name": "Sınavlar Yolu",
-     "function": "Birbirini izleyen sınavlar ve yenilgiler.",
-     "status": "red",
-     "assessment": "not_written",
-     "chapters": [
-      "b6"
-     ],
-     "note": "Bu örnekte planlanan devam yazılmadı. Bir kurgu hatası hükmü değildir.",
+     "name": "Road of Trials",
+     "function": "What this stage does in a story.",
+     "status": "gray",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 7,
-     "name": "Tanrıçayla Karşılaşma",
-     "function": "Koşulsuz sevgiyle ya da bütünlük duygusuyla karşılaşma. Cinsiyete bağlı okunmak zorunda değil.",
+     "name": "Meeting with the Goddess",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 8,
-     "name": "Ayartıcı Olarak Kadın",
-     "function": "Kahramanı yolundan saptıran çekim. Campbell'ın dönemine ait bir adlandırma; bugün daha çok \"ayartı\" ya da \"yoldan saptıran çekim\" olarak okunur.",
+     "name": "Temptation",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 9,
-     "name": "Babayla Barışma",
-     "function": "Kahramanın üzerinde güç sahibi olanla (baba, otorite, kader) yüzleşmesi ve onunla barışması.",
+     "name": "Atonement with the Father",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 10,
-     "name": "Tanrılaşma",
-     "function": "Bilinçte genişleme; kahramanın kendini aşan bir anlayışa varması.",
+     "name": "Apotheosis",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 11,
-     "name": "Nihai Lütuf",
-     "function": "Yolculuğun amacı olan kazanım.",
+     "name": "The Ultimate Boon",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 12,
-     "name": "Dönüşün Reddi",
-     "function": "Kahramanın yeni dünyadan dönmek istememesi.",
+     "name": "Refusal of the Return",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 13,
-     "name": "Sihirli Kaçış",
-     "function": "Kazanımla birlikte kaçış; bazen kovalanma.",
+     "name": "The Magic Flight",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 14,
-     "name": "Dışarıdan Kurtarış",
-     "function": "Kahramanın dönüşüne dışarıdan gelen yardım.",
+     "name": "Rescue from Without",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 15,
-     "name": "Dönüş Eşiğinin Aşılması",
-     "function": "Kazanılanı gündelik dünyaya taşımanın güçlüğü.",
+     "name": "Crossing the Return Threshold",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 16,
-     "name": "İki Dünyanın Efendisi",
-     "function": "İç dünya ile dış dünya arasında dengede durabilmek.",
+     "name": "Master of Two Worlds",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 17,
-     "name": "Yaşama Özgürlüğü",
-     "function": "Geçmişin yükünden ve ölüm korkusundan kurtulmuş, şimdide yaşayabilen kahraman.",
+     "name": "Freedom to Live",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     }
    ],
    "vogler": [
     {
      "id": 1,
-     "name": "Olağan Dünya",
-     "function": "Kahramanın değişmeden önceki hayatı; okur onun eksikliğini, yarasını, alışkanlıklarını görür.",
+     "name": "Ordinary World",
+     "function": "What this stage does in a story.",
      "status": "green",
      "assessment": "present",
      "chapters": [
-      "b1"
+      "c1"
      ],
-     "note": "Dükkân rutini olağan dünyayı kuruyor.",
+     "note": "Works in the sections read.",
      "evidence": [
       {
-       "chapter": "b1",
+       "chapter": "c1",
        "paragraph": 1,
-       "quote": "Selin her sabah aynı saatte dükkânın kepengini kaldırırdı."
+       "quote": "The letter arrived on Tuesday."
       }
      ]
     },
     {
      "id": 2,
-     "name": "Maceraya Çağrı",
-     "function": "Olağan dünyayı bozan olay, haber ya da fırsat.",
+     "name": "Call to Adventure",
+     "function": "What this stage does in a story.",
      "status": "green",
      "assessment": "present",
      "chapters": [
-      "b1"
+      "c1"
      ],
-     "note": "Mektup çağrıyı taşıyor.",
+     "note": "Works in the sections read.",
      "evidence": [
       {
-       "chapter": "b1",
-       "paragraph": 2,
-       "quote": "Köprü yıkılmadan karşıya geç."
+       "chapter": "c1",
+       "paragraph": 1,
+       "quote": "The letter arrived on Tuesday."
       }
      ]
     },
     {
      "id": 3,
-     "name": "Çağrının Reddi",
-     "function": "Kahraman korkar, direnir ya da erteler; risk görünür olur.",
-     "status": "yellow",
-     "assessment": "revision",
+     "name": "Refusal of the Call",
+     "function": "What this stage does in a story.",
+     "status": "green",
+     "assessment": "present",
      "chapters": [
-      "b2"
+      "c1"
      ],
-     "note": "Ret açık; kaybetme korkusu daha somut bağlanabilir.",
+     "note": "Works in the sections read.",
      "evidence": [
       {
-       "chapter": "b2",
+       "chapter": "c1",
        "paragraph": 1,
-       "quote": "Dükkânı bırakamazdı."
+       "quote": "The letter arrived on Tuesday."
       }
      ]
     },
     {
      "id": 4,
-     "name": "Akıl Hocasıyla Karşılaşma",
-     "function": "Kahramana bilgi, cesaret ya da bir araç veren kişi ya da şey.",
-     "status": "green",
-     "assessment": "present",
-     "chapters": [
-      "b3"
-     ],
-     "note": "Komşunun anahtarı kararın aracını veriyor.",
-     "evidence": [
-      {
-       "chapter": "b3",
-       "paragraph": 1,
-       "quote": "Selin'e bir anahtar uzattı."
-      }
-     ]
+     "name": "Meeting the Mentor",
+     "function": "What this stage does in a story.",
+     "status": "gray",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
+     "evidence": []
     },
     {
      "id": 5,
-     "name": "İlk Eşiğin Aşılması",
-     "function": "Geri dönüşü zor ilk karar; kahraman yeni dünyaya adım atar.",
-     "status": "green",
-     "assessment": "present",
-     "chapters": [
-      "b4"
-     ],
-     "note": "Eşik geçildi; geri dönüş güçleşti.",
-     "evidence": [
-      {
-       "chapter": "b4",
-       "paragraph": 2,
-       "quote": "Karşı kıyıya geçtiğinde köprüden bir tahta koptu."
-      }
-     ]
+     "name": "Crossing the Threshold",
+     "function": "What this stage does in a story.",
+     "status": "gray",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
+     "evidence": []
     },
     {
      "id": 6,
-     "name": "Sınavlar, Müttefikler, Düşmanlar",
-     "function": "Yeni dünyanın kuralları öğrenilir; kimin dost, kimin düşman olduğu belli olur.",
+     "name": "Tests, Allies, Enemies",
+     "function": "What this stage does in a story.",
      "status": "gray",
-     "assessment": "draft",
-     "chapters": [
-      "b5"
-     ],
-     "note": "Taslak henüz değerlendirilmiyor.",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 7,
-     "name": "En Derin Mağaraya Yaklaşma",
-     "function": "Asıl yüzleşmeye hazırlık; gerilim yoğunlaşır.",
-     "status": "red",
-     "assessment": "not_written",
-     "chapters": [
-      "b6"
-     ],
-     "note": "Planlanan devam henüz yazılmadı; sonuç bölümü değerlendirilmedi.",
+     "name": "Approach to the Inmost Cave",
+     "function": "What this stage does in a story.",
+     "status": "gray",
+     "assessment": "unassessed",
+     "chapters": [],
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 8,
-     "name": "Büyük Sınav",
-     "function": "Kahramanın en büyük korkusuyla ya da ölümle (gerçek ya da simgesel) yüzleştiği kriz.",
+     "name": "The Ordeal",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 9,
-     "name": "Ödül",
-     "function": "Sınavın ardından kazanılan şey.",
+     "name": "Reward",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 10,
-     "name": "Dönüş Yolu",
-     "function": "Olağan dünyaya dönme kararı ve bedeli; sonuçlar peşini bırakmaz.",
+     "name": "The Road Back",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 11,
-     "name": "Diriliş",
-     "function": "Son ve en yüksek sınav; kahraman değiştiğini bir seçimle kanıtlar.",
+     "name": "Resurrection",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     },
     {
      "id": 12,
-     "name": "İksirle Dönüş",
-     "function": "Kahraman olağan dünyaya, kendisine ya da başkalarına iyi gelecek bir şeyle döner.",
+     "name": "Return with the Elixir",
+     "function": "What this stage does in a story.",
      "status": "gray",
      "assessment": "unassessed",
      "chapters": [],
-     "note": "Bu aşama henüz değerlendirilmedi.",
+     "note": "Not assessed yet.",
      "evidence": []
     }
    ]
   },
-  "chapter_reviews": [
-   {
-    "chapter": "b1",
-    "status": "green",
-    "note": "Çağrı somut bir haberle geliyor.",
-    "evidence": [
-     {
-      "chapter": "b1",
-      "paragraph": 2,
-      "quote": "Köprü yıkılmadan karşıya geç."
-     }
-    ]
-   },
-   {
-    "chapter": "b2",
-    "status": "yellow",
-    "note": "Direnç gerekçesi üzerine tercih kararı var.",
-    "evidence": [
-     {
-      "chapter": "b2",
-      "paragraph": 1,
-      "quote": "Dükkânı bırakamazdı."
-     }
-    ]
-   },
-   {
-    "chapter": "b3",
-    "status": "green",
-    "note": "Yardım ve araç aynı sahnede kuruluyor.",
-    "evidence": [
-     {
-      "chapter": "b3",
-      "paragraph": 1,
-      "quote": "Selin'e bir anahtar uzattı."
-     }
-    ]
-   },
-   {
-    "chapter": "b4",
-    "status": "green",
-    "note": "Eşiğin bedeli metinde görünür.",
-    "evidence": [
-     {
-      "chapter": "b4",
-      "paragraph": 2,
-      "quote": "Karşı kıyıya geçtiğinde köprüden bir tahta koptu."
-     }
-    ]
-   }
-  ],
+  "chapter_reviews": [],
   "opinions": {
    "editor": {
     "state": "complete",
-    "summary": "Çağrı, yardımcı ve eşik işliyor. Açılması gereken ana mesele bekleyişin gerekçesi.",
+    "summary": "The call lands early and clearly.",
     "evidence": [
      {
-      "chapter": "b2",
+      "chapter": "c1",
       "paragraph": 1,
-      "quote": "Dükkânı bırakamazdı."
+      "quote": "The letter arrived on Tuesday."
      }
     ]
    },
-   "okur": {
+   "reader": {
     "state": "complete",
-    "summary": "Mektupta meraklandım; bekleyişte hızım düştü; köprü kırıldığında geri dönüşün zorlaştığını hissettim.",
+    "summary": "I was curious, then slowed down in the second chapter.",
     "evidence": []
    }
   },
   "decisions": [
    {
-    "label": "Tercih meselesi",
-    "text": "Bekleyişin nedenini metinde zaten bulunan dükkân bağıyla belirginleştirmek değerlendirilebilir.",
+    "label": "Preference",
+    "text": "Consider whether the waiting scene needs its full length.",
     "evidence": [
      {
-      "chapter": "b2",
-      "paragraph": 1,
-      "quote": "Dükkânı bırakamazdı."
-     }
-    ]
-   },
-   {
-    "label": "Tercih meselesi",
-    "text": "Tekrarlanan mektup hareketinin motif mi, durağanlık mı olduğuna sahne işleviyle karar verilmeli.",
-    "evidence": [
-     {
-      "chapter": "b2",
+      "chapter": "c2",
       "paragraph": 2,
-      "quote": "Mektubu masanın üzerine bıraktı."
+      "quote": "He put the letter away."
      }
     ]
    }
   ],
-  "disagreements": "Satır okuması tekrarın aşınmasına, Haşim merceği ritim değerine bakıyor. Her tekrar otomatik silinmemeli.",
+  "disagreements": "",
   "modules": [
    {
-    "id": "editor",
+    "id": "developmental",
     "state": "complete",
-    "summary": "Bu kısa görsel örnekte çağrı, yardım ve geçiş birbirine bağlanıyor. Ana belirsizlik direnç gerekçesinde.",
+    "summary": "Structure holds.",
     "findings": [
      {
-      "label": "Çalışan",
-      "text": "Kırılan köprü eşiğin bedelini olayla gösteriyor.",
-      "evidence": [
-       {
-        "chapter": "b4",
-        "paragraph": 2,
-        "quote": "Karşı kıyıya geçtiğinde köprüden bir tahta koptu."
-       }
-      ]
+      "label": "Working",
+      "text": "The opening hook is concrete.",
+      "evidence": []
      }
     ]
    },
    {
-    "id": "gelistirme",
-    "state": "complete",
-    "summary": "Dört kısa parça bir karar çizgisi oluşturuyor. Bekleyişteki tekrarların tempo işlevi tartışmaya açık.",
-    "findings": [
-     {
-      "label": "Tercih meselesi",
-      "text": "Dükkânın Selin için neyi riske attığı mevcut metinde soyut kalıyor.",
-      "evidence": [
-       {
-        "chapter": "b2",
-        "paragraph": 1,
-        "quote": "Dükkânı bırakamazdı."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "satir",
-    "state": "complete",
-    "summary": "Tekrar taramasındaki mektup ve bekleyiş cümleleri işlev bakımından ayrılmalı.",
-    "findings": [
-     {
-      "label": "Tercih meselesi",
-      "text": "Mektubu bırakma hareketinin her dönüşü yeni bir iç karar taşımıyor.",
-      "evidence": [
-       {
-        "chapter": "b2",
-        "paragraph": 2,
-        "quote": "Mektubu masanın üzerine bıraktı."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "imla",
+    "id": "spelling",
     "state": "limited",
-    "summary": "Görsel provada tek yazım adayı gösteriliyor; kapsamlı TDK doğrulaması yapılmadı.",
+    "summary": "Two preferences.",
     "findings": [
      {
-      "label": "Bilgi",
-      "text": "“Herşey” → “Her şey”: ayrı yazım adayı; gerçek raporda ilgili TDK kaynağı doğrulanır.",
-      "evidence": [
-       {
-        "chapter": "b2",
-        "paragraph": 2,
-        "quote": "Herşey yerli yerindeydi;"
-       }
-      ]
+      "label": "Preference",
+      "text": "Consider the comma here.",
+      "evidence": []
+     },
+     {
+      "label": "Preference",
+      "text": "Consider the hyphen here.",
+      "evidence": []
      }
     ]
    },
    {
-    "id": "sureklilik",
+    "id": "continuity",
     "state": "complete",
-    "summary": "Örnek metindeki anahtar komşudan Selin'e geçiyor, defterin yanına konup yeniden alınıyor. Köprüye cebinde taşınıyor.",
-    "findings": [
-     {
-      "label": "Çalışan",
-      "text": "Anahtarın sahneler arasındaki yeri izlenebiliyor.",
-      "evidence": [
-       {
-        "chapter": "b3",
-        "paragraph": 3,
-        "quote": "Anahtarı cebinden çıkarıp defterin yanına koydu, sonra yeniden aldı."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "okur",
-    "state": "complete",
-    "summary": "Mektubun tek cümlesinde meraklandım. İkinci parçadaki bekleyişte hızım düştü. Köprü kırıldığında kararın ciddiyetini hissettim.",
-    "findings": [
-     {
-      "label": "Okur tepkisi",
-      "text": "Anahtarın hangi kapıyı açacağını merak ediyorum.",
-      "evidence": [
-       {
-        "chapter": "b3",
-        "paragraph": 1,
-        "quote": "Selin'e bir anahtar uzattı."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "yapi",
-    "state": "complete",
-    "summary": "Campbell 4 ve Vogler 5, son kanonik olay için desteklenen konumlar. Taslakta sonraki aşamaları tamamlanmış saymıyoruz.",
-    "findings": [
-     {
-      "label": "Çalışan",
-      "text": "Karşıya geçişin ardından kopan tahta, geri dönüş güçlüğünü somutlaştırıyor.",
-      "evidence": [
-       {
-        "chapter": "b4",
-        "paragraph": 2,
-        "quote": "Karşı kıyıya geçtiğinde köprüden bir tahta koptu."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "olgu",
-    "state": "not_needed",
-    "summary": "Bu görsel provada dış kaynak isteyen tarih, coğrafya veya atıf doğrulaması yapılmadı. Kurgu içi nesne takibi süreklilik kartında.",
+    "summary": "No contradictions.",
     "findings": []
+   },
+   {
+    "id": "reader",
+    "state": "complete",
+    "summary": "Reader reaction.",
+    "findings": [
+     {
+      "label": "Reader reaction",
+      "text": "Curious at the start.",
+      "evidence": []
+     }
+    ]
    }
-  ],
-  "overview": "Görsel provada açılış çizgisi okunuyor. Ana karar, bekleyişin gerekçesi ve tekrarların işlevi üzerine; taslaklara hüküm verilmedi."
+  ]
  },
  "labels": {
   "status": {
-   "green": "Çalışıyor",
-   "yellow": "Gözden geçir",
-   "red": "Eksik",
-   "gray": "Değerlendirilmedi"
+   "green": "Working",
+   "yellow": "Needs review",
+   "red": "Missing",
+   "gray": "Not assessed"
   },
   "assessment": {
-   "present": "Metinde var",
-   "implicit": "Örtük işlev",
-   "different": "Bilinçli farklı kuruluş",
-   "revision": "Revizyon gerekli",
-   "missing": "İşlev eksik",
-   "not_written": "Henüz yazılmadı",
-   "draft": "Taslak / not",
-   "unassessed": "Değerlendirilmedi"
+   "present": "Present",
+   "implicit": "Implicit",
+   "different": "Deliberately different",
+   "revision": "Needs revision",
+   "missing": "Function missing",
+   "not_written": "Not written yet",
+   "draft": "Draft or note",
+   "unassessed": "Not assessed"
   },
   "kinds": {
-   "prose": "Anlatı",
-   "draft": "Taslak",
-   "note": "Not / yorum",
-   "raw": "Ham metin",
-   "missing": "Henüz yazılmadı"
+   "prose": "Prose",
+   "draft": "Draft",
+   "note": "Note",
+   "raw": "Raw text",
+   "missing": "Not written yet"
   },
   "states": {
-   "complete": "İncelendi",
-   "limited": "Sınırlı inceleme",
-   "not_run": "Çalıştırılmadı",
-   "not_needed": "Gerekmedi"
+   "complete": "Reviewed",
+   "limited": "Limited review",
+   "not_run": "Not run",
+   "not_needed": "Not needed"
   },
   "modules": {
-   "editor": "Editör",
-   "gelistirme": "Geliştirme / danışman",
-   "satir": "Satır editörlüğü",
-   "imla": "İmla",
-   "sureklilik": "Süreklilik",
-   "okur": "Okur",
-   "yapi": "Yapı haritası",
-   "olgu": "Olgu denetimi"
+   "developmental": "Developmental editor",
+   "spelling": "Spelling",
+   "continuity": "Continuity",
+   "reader": "Reader panel"
   },
   "roles": {
-   "editor": "Yapı Editörü",
-   "okur": "Okur Paneli"
+   "editor": "Developmental Editor",
+   "reader": "Beta Reader Panel"
   }
  },
  "colors": {

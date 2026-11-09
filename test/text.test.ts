@@ -28,12 +28,12 @@ describe("canonical text and hashing", () => {
   });
 
   it("splits paragraphs on blank lines and trims them", () => {
-    expect(paragraphs("  bir \n\n\n iki\n \n üç")).toEqual(["bir", "iki", "üç"]);
+    expect(paragraphs("  one \n\n\n two\n \n three")).toEqual(["one", "two", "three"]);
   });
 });
 
 describe("quote matching", () => {
-  const text = "Selim “geldi” dedi. Ali de geldi.";
+  const text = "Sam “came” home. Ali came too.";
 
   it("finds exact matches in code points", () => {
     expect(findQuote("😀 Ali", "Ali")).toEqual({
@@ -44,27 +44,27 @@ describe("quote matching", () => {
   });
 
   it("relaxes typography only and returns the original text", () => {
-    expect(findQuote(text, 'Selim "geldi" dedi')).toMatchObject({
+    expect(findQuote(text, 'Sam "came" home')).toMatchObject({
       status: "found",
-      original: "Selim “geldi” dedi",
+      original: "Sam “came” home",
     });
   });
 
   it("relaxes ellipses and extra spaces", () => {
-    expect(findQuote("Sonra…  gitti", "Sonra... gitti").status).toBe("found");
+    expect(findQuote("Later…  gone", "Later... gone").status).toBe("found");
   });
 
   it("does not relax letters or letter case", () => {
-    expect(findQuote(text, "selim").status).toBe("missing");
-    expect(findQuote(text, "Salim").status).toBe("missing");
+    expect(findQuote(text, "sam").status).toBe("missing");
+    expect(findQuote(text, "Som").status).toBe("missing");
   });
 
   it("reports ambiguity and resolves it with a hint", () => {
-    const repeated = "geldi ve geldi";
-    expect(findQuote(repeated, "geldi")).toEqual({ status: "ambiguous", count: 2 });
-    expect(findQuote(repeated, "geldi", [6, 14])).toMatchObject({
+    const repeated = "went and went";
+    expect(findQuote(repeated, "went")).toEqual({ status: "ambiguous", count: 2 });
+    expect(findQuote(repeated, "went", [5, 13])).toMatchObject({
       status: "found",
-      range: [9, 14],
+      range: [9, 13],
     });
   });
 
@@ -115,12 +115,12 @@ describe("format readers", () => {
 
   it("reads Word paragraphs and heading styles", () => {
     const xml = `<w:document><w:body>
-      <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Giriş</w:t></w:r></w:p>
-      <w:p><w:r><w:t xml:space="preserve">Ali &amp; </w:t></w:r><w:r><w:t>Ayşe</w:t></w:r></w:p>
+      <w:p><w:pPr><w:pStyle w:val="Heading1"/></w:pPr><w:r><w:t>Intro</w:t></w:r></w:p>
+      <w:p><w:r><w:t xml:space="preserve">Ali &amp; </w:t></w:r><w:r><w:t>Bob</w:t></w:r></w:p>
       <w:p></w:p>
     </w:body></w:document>`;
     const result = readDocx(zipSync({ "word/document.xml": strToU8(xml) }));
-    expect(result.text).toBe("Giriş\n\nAli & Ayşe");
+    expect(result.text).toBe("Intro\n\nAli & Bob");
     expect(result.headings).toEqual([0]);
   });
 
