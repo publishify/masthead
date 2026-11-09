@@ -160,7 +160,11 @@ async function checkNotes(
       };
     }),
   );
-  return { notes, stages: output.stages ?? [] };
+  const stages = ((output.stages ?? []) as Place[]).map((stage) => {
+    const unit = locate(stage);
+    return { ...stage, ...(unit ? { unit } : {}) };
+  });
+  return { notes, stages };
 }
 
 // The cheapest model that does each reading well enough. The Auditor's work decides quality.

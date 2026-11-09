@@ -1386,7 +1386,11 @@ async function checkNotes(output, defaultUnit) {
       };
     })
   );
-  return { notes, stages: output.stages ?? [] };
+  const stages = (output.stages ?? []).map((stage) => {
+    const unit = locate(stage);
+    return { ...stage, ...unit ? { unit } : {} };
+  });
+  return { notes, stages };
 }
 var ROLE_MODEL = {
   editor: "haiku",

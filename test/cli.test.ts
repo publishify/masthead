@@ -58,9 +58,12 @@ describe("check command", () => {
             evidence: [{ quote: "The door opened." }],
           },
         ],
+        stages: [{ scheme: "merhale", no: 1, state: "clear", quote: "He waited" }],
       }),
     );
-    const [note] = run(["check", ".masthead/out/b.json"], dir).notes;
+    const checked = run(["check", ".masthead/out/b.json"], dir);
+    const [note] = checked.notes;
+    expect(checked.stages[0].unit).toBe(1);
     expect(note.unit).toBe(1);
     expect(note.evidence[0].unit).toBe(1);
     expect(note.verification.method).toBe("script");
