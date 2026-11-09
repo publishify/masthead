@@ -176,7 +176,7 @@ export async function callTool(name: string, args: object, retried = false): Pro
 }
 
 /** A short, separate conversation with every tool off, on the author's own Claude account. */
-export function askModel(prompt: string, model = "sonnet") {
+export function askModel(prompt: string, model = "sonnet", effort = "low") {
   return new Promise<{ text: string; costUsd: number }>((done, fail) => {
     const env = { ...process.env };
     delete env.CLAUDECODE;
@@ -195,7 +195,8 @@ export function askModel(prompt: string, model = "sonnet") {
         "--setting-sources",
         "project",
         "--no-session-persistence",
-        ...(process.env.MASTHEAD_EFFORT ? ["--effort", process.env.MASTHEAD_EFFORT] : []),
+        "--effort",
+        process.env.MASTHEAD_EFFORT || effort,
         "--system-prompt",
         MODEL_ROLE,
       ],

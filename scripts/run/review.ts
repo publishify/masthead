@@ -25,7 +25,7 @@ type RoleOutput = { summary?: unknown; notes?: Note[]; stages?: unknown[] };
 
 export type ReviewDeps = {
   callTool(name: string, args: object): Promise<Reply>;
-  ask(prompt: string): Promise<{ text: string; costUsd: number }>;
+  ask(prompt: string, role: string): Promise<{ text: string; costUsd: number }>;
   prepare(file: string, genre: string): Promise<PreparedBook>;
   measureAll(): unknown[];
   sectionText(unit: number): string;
@@ -84,7 +84,7 @@ export async function runReview(
   async function readWithModel(step: Step, feedback: string) {
     for (let attempt = 1; ; attempt++) {
       const began = Date.now();
-      const answer = await deps.ask(promptFor(step, feedback));
+      const answer = await deps.ask(promptFor(step, feedback), step.role);
       cost += answer.costUsd;
       breakdown.push({
         step: `${step.role}${step.unit ? ` ${step.unit}` : ""}`,

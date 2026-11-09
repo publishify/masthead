@@ -147,7 +147,7 @@ ${source}${feedback}`;
   async function readWithModel(step, feedback) {
     for (let attempt = 1; ; attempt++) {
       const began = Date.now();
-      const answer = await deps.ask(promptFor(step, feedback));
+      const answer = await deps.ask(promptFor(step, feedback), step.role);
       cost += answer.costUsd;
       breakdown.push({
         step: `${step.role}${step.unit ? ` ${step.unit}` : ""}`,
@@ -385,7 +385,7 @@ async function callTool(name, args, retried = false) {
     throw new Error("SERVER_REFUSED");
   }
 }
-function askModel(prompt, model = "sonnet") {
+function askModel(prompt, model = "sonnet", effort = "low") {
   return new Promise((done, fail) => {
     const env = { ...process.env };
     delete env.CLAUDECODE;
@@ -404,7 +404,8 @@ function askModel(prompt, model = "sonnet") {
         "--setting-sources",
         "project",
         "--no-session-persistence",
-        ...process.env.MASTHEAD_EFFORT ? ["--effort", process.env.MASTHEAD_EFFORT] : [],
+        "--effort",
+        process.env.MASTHEAD_EFFORT || effort,
         "--system-prompt",
         MODEL_ROLE
       ],
@@ -1387,6 +1388,11 @@ async function checkNotes(output, defaultUnit) {
   );
   return { notes, stages: output.stages ?? [] };
 }
+var ROLE_MODEL = {
+  editor: "haiku",
+  auditor: "sonnet",
+  "reader-panel": "haiku"
+};
 var FULL_TEXT_WORD_LIMIT = 4e4;
 var CANDIDATE_CHAR_LIMIT = 15e4;
 var numbered = (unit) => paragraphs(readFileSync3(unitPath(unit), "utf-8")).map((text, i2) => `[${i2 + 1}] ${text}`).join("\n\n");
@@ -1449,7 +1455,7 @@ ${JSON.stringify(missing)}`,
 function reviewDeps() {
   return {
     callTool,
-    ask: (prompt) => askModel(prompt),
+    ask: (prompt, role) => askModel(prompt, process.env.MASTHEAD_MODEL || ROLE_MODEL[role]),
     prepare,
     measureAll: () => readManifest().units.map((u) => ({
       no: u.no,

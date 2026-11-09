@@ -163,6 +163,12 @@ async function checkNotes(
   return { notes, stages: output.stages ?? [] };
 }
 
+// The cheapest model that does each reading well enough. The Auditor's work decides quality.
+const ROLE_MODEL: Record<string, string> = {
+  editor: "haiku",
+  auditor: "sonnet",
+  "reader-panel": "haiku",
+};
 const FULL_TEXT_WORD_LIMIT = 40_000;
 const CANDIDATE_CHAR_LIMIT = 150_000;
 const numbered = (unit: number) =>
@@ -226,7 +232,7 @@ async function finishReport(dashboard: unknown, lang: string) {
 function reviewDeps(): ReviewDeps {
   return {
     callTool,
-    ask: (prompt) => askModel(prompt),
+    ask: (prompt, role) => askModel(prompt, process.env.MASTHEAD_MODEL || ROLE_MODEL[role]),
     prepare,
     measureAll: () =>
       readManifest().units.map((u) => ({
