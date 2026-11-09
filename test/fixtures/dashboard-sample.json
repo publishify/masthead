@@ -292,8 +292,8 @@
    "reader": "Reader panel"
   },
   "roles": {
-   "editor": "Developmental Editor",
-   "reader": "Beta Reader Panel"
+   "editor": "Editor",
+   "reader": "Reader Panel"
   },
   "review": {
    "green": "Reviewed",
