@@ -1,5 +1,6 @@
 // scripts/text/cli.ts
 import { existsSync as existsSync2, mkdirSync as mkdirSync2, readFileSync as readFileSync3, rmSync, writeFileSync as writeFileSync2 } from "node:fs";
+import { homedir as homedir2 } from "node:os";
 import { join as join2, resolve as resolve2 } from "node:path";
 
 // shared/types.ts
@@ -123,6 +124,7 @@ async function runReview(input, deps) {
   const started = Date.now();
   let cost = 0;
   let report;
+  const breakdown = [];
   const prepared = await deps.prepare(input.file, input.genre);
   const saved = ensure(
     await deps.callTool("save_book", {
@@ -144,8 +146,14 @@ ${source}${feedback}`;
   };
   async function readWithModel(step, feedback) {
     for (let attempt = 1; ; attempt++) {
+      const began = Date.now();
       const answer = await deps.ask(promptFor(step, feedback));
       cost += answer.costUsd;
+      breakdown.push({
+        step: `${step.role}${step.unit ? ` ${step.unit}` : ""}`,
+        seconds: Math.round((Date.now() - began) / 1e3),
+        cost_usd: Math.round(answer.costUsd * 1e3) / 1e3
+      });
       try {
         return parseOutput(answer.text);
       } catch (error) {
@@ -214,6 +222,8 @@ ${JSON.stringify(reply.rejections)}`
     language: uiLanguage,
     cost_usd: Math.round((cost + done.costUsd) * 100) / 100,
     seconds: Math.round((Date.now() - started) / 1e3),
+    breakdown,
+    translation_usd: Math.round(done.costUsd * 1e3) / 1e3,
     decisions: (report.dashboard.analysis?.decisions ?? []).map((d) => d.text)
   };
 }
@@ -394,6 +404,7 @@ function askModel(prompt, model = "sonnet") {
         "--setting-sources",
         "project",
         "--no-session-persistence",
+        ...process.env.MASTHEAD_EFFORT ? ["--effort", process.env.MASTHEAD_EFFORT] : [],
         "--system-prompt",
         MODEL_ROLE
       ],
@@ -1268,7 +1279,7 @@ var option = (args, name) => {
   return i2 >= 0 ? args[i2 + 1] : void 0;
 };
 var languageOf = (args) => normalizeLang(option(args, "--lang") || process.env.CLAUDE_PLUGIN_OPTION_LANGUAGE || "en");
-var stringsDir = () => process.env.CLAUDE_PLUGIN_DATA || WORK_DIR;
+var stringsDir = () => process.env.CLAUDE_PLUGIN_DATA || join2(homedir2(), ".config", "masthead");
 var stringsPath = (lang) => join2(stringsDir(), `strings.${lang}.json`);
 var savedStrings = (lang) => existsSync2(stringsPath(lang)) ? JSON.parse(readFileSync3(stringsPath(lang), "utf-8")) : {};
 var workFile = (name) => join2(WORK_DIR, name);

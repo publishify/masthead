@@ -62,6 +62,7 @@ export async function runReview(
   const started = Date.now();
   let cost = 0;
   let report: Reply | undefined;
+  const breakdown: { step: string; seconds: number; cost_usd: number }[] = [];
   const prepared = await deps.prepare(input.file, input.genre);
   const saved = ensure(
     await deps.callTool("save_book", {
@@ -82,8 +83,14 @@ export async function runReview(
 
   async function readWithModel(step: Step, feedback: string) {
     for (let attempt = 1; ; attempt++) {
+      const began = Date.now();
       const answer = await deps.ask(promptFor(step, feedback));
       cost += answer.costUsd;
+      breakdown.push({
+        step: `${step.role}${step.unit ? ` ${step.unit}` : ""}`,
+        seconds: Math.round((Date.now() - began) / 1000),
+        cost_usd: Math.round(answer.costUsd * 1000) / 1000,
+      });
       try {
         return parseOutput(answer.text);
       } catch (error) {
@@ -157,6 +164,8 @@ export async function runReview(
     language: uiLanguage,
     cost_usd: Math.round((cost + done.costUsd) * 100) / 100,
     seconds: Math.round((Date.now() - started) / 1000),
+    breakdown,
+    translation_usd: Math.round(done.costUsd * 1000) / 1000,
     decisions: (report.dashboard.analysis?.decisions ?? []).map((d) => d.text),
   };
 }

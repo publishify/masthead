@@ -195,6 +195,7 @@ export function askModel(prompt: string, model = "sonnet") {
         "--setting-sources",
         "project",
         "--no-session-persistence",
+        ...(process.env.MASTHEAD_EFFORT ? ["--effort", process.env.MASTHEAD_EFFORT] : []),
         "--system-prompt",
         MODEL_ROLE,
       ],

@@ -1,4 +1,5 @@
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { homedir } from "node:os";
 import { join, resolve } from "node:path";
 import type { Genre, Hash, Manifest } from "../../shared/types";
 import { GENRES } from "../../shared/types";
@@ -31,7 +32,8 @@ const option = (args: string[], name: string) => {
 /** An explicit option wins; then the plugin's language setting; then English. */
 const languageOf = (args: string[]) =>
   normalizeLang(option(args, "--lang") || process.env.CLAUDE_PLUGIN_OPTION_LANGUAGE || "en");
-const stringsDir = () => process.env.CLAUDE_PLUGIN_DATA || WORK_DIR;
+// Interface translations are shared by all books, so each language is paid for once.
+const stringsDir = () => process.env.CLAUDE_PLUGIN_DATA || join(homedir(), ".config", "masthead");
 const stringsPath = (lang: string) => join(stringsDir(), `strings.${lang}.json`);
 const savedStrings = (lang: string): Strings =>
   existsSync(stringsPath(lang)) ? JSON.parse(readFileSync(stringsPath(lang), "utf-8")) : {};
