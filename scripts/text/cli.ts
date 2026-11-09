@@ -7,6 +7,7 @@ import { catalog, cleanStrings, normalizeLang, type Strings } from "../dashboard
 import template from "../dashboard/template.html";
 import { type ReviewDeps, runReview } from "../run/review";
 import { askModel, callTool, openInBrowser } from "../run/server";
+import { holdsFacts } from "./candidates";
 import { bookHash, hash, paragraphs } from "./canonical";
 import { readFile, TextError } from "./formats";
 import { detectLanguage } from "./language";
@@ -161,6 +162,7 @@ async function checkNotes(
 }
 
 const FULL_TEXT_WORD_LIMIT = 40_000;
+const CANDIDATE_CHAR_LIMIT = 150_000;
 const numbered = (unit: number) =>
   paragraphs(readFileSync(unitPath(unit), "utf-8"))
     .map((text, i) => `[${i + 1}] ${text}`)
@@ -181,7 +183,14 @@ function bookContext(role: string) {
   const total = units.reduce((sum, u) => sum + u.words, 0);
   return total <= FULL_TEXT_WORD_LIMIT
     ? units.map((u) => section(u.no)).join("\n\n")
-    : `# Summaries of a long book\n${summaries}`;
+    : `# Summaries of a long book\n${summaries}\n\n# Passages with checkable facts\n${units
+        .flatMap((u) =>
+          paragraphs(readFileSync(unitPath(u.no), "utf-8")).flatMap((text, i) =>
+            holdsFacts(text) ? [`[section ${u.no}, paragraph ${i + 1}] ${text}`] : [],
+          ),
+        )
+        .join("\n")
+        .slice(0, CANDIDATE_CHAR_LIMIT)}`;
 }
 
 async function finishReport(dashboard: unknown, lang: string) {

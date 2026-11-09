@@ -43,7 +43,7 @@ describe("dashboard", () => {
     expect(list).toContain("{name}: not run");
     expect(list).toContain("Key decisions");
     expect(list).toContain("Preference");
-    expect(list).toContain("Ordinary World");
+    expect(list).toContain("Threshold");
     expect(list).not.toContain("Publishify Masthead");
     expect(list).not.toContain("The hero hesitates after the call.");
   });

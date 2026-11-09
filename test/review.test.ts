@@ -6,6 +6,7 @@ import {
   runReview,
   type Step,
 } from "../scripts/run/review";
+import { holdsFacts } from "../scripts/text/candidates";
 import { findSpellingErrors } from "../scripts/text/spelling";
 
 const step = (id: string, role: string, unit: number | null): Step => ({
@@ -162,5 +163,13 @@ describe("spelling list", () => {
 
   it("does nothing for a language without a list", () => {
     expect(findSpellingErrors(["herkez"], "en")).toEqual([]);
+  });
+});
+
+describe("fact scan", () => {
+  it("picks passages with checkable facts", () => {
+    expect(holdsFacts("Otuz dört yaşındaydı.")).toBe(true);
+    expect(holdsFacts("It was a Tuesday morning.")).toBe(true);
+    expect(holdsFacts("Rüzgâr hafifçe esti.")).toBe(false);
   });
 });

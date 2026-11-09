@@ -23,7 +23,8 @@
       "!test/fixtures",
       "!agents/**/*.md",
       "!commands/**/*.md",
-      "!skills/**/*.md"
+      "!skills/**/*.md",
+      "!docs/**/*.md"
     ]
   }
 }

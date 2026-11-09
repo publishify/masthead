@@ -99,13 +99,10 @@
   "overview": "The opening works; the main question is whether the waiting earns its length.",
   "current": {
    "chapter": "c2",
-   "campbell": [
+   "merhale": [
     2
    ],
-   "vogler": [
-    3
-   ],
-   "summary": "The hero hesitates after the call.",
+   "summary": "",
    "evidence": [
     {
      "chapter": "c2",
@@ -115,337 +112,72 @@
    ]
   },
   "maps": {
-   "campbell": [
+   "merhale": [
     {
      "id": 1,
-     "name": "The Call to Adventure",
-     "function": "What this stage does in the book.",
+     "name": "Call",
+     "function": "What this stage asks of the book.",
      "status": "green",
-     "assessment": "present",
      "chapters": [
       "c1"
      ],
-     "note": "Works in the sections read.",
-     "evidence": [
-      {
-       "chapter": "c1",
-       "paragraph": 1,
-       "quote": "The letter arrived on Tuesday."
-      }
-     ]
+     "note": "",
+     "evidence": []
     },
     {
      "id": 2,
-     "name": "Refusal of the Call",
-     "function": "What this stage does in the book.",
+     "name": "Guide",
+     "function": "What this stage asks of the book.",
      "status": "green",
-     "assessment": "present",
      "chapters": [
       "c1"
      ],
-     "note": "Works in the sections read.",
-     "evidence": [
-      {
-       "chapter": "c1",
-       "paragraph": 1,
-       "quote": "The letter arrived on Tuesday."
-      }
-     ]
+     "note": "",
+     "evidence": []
     },
     {
      "id": 3,
-     "name": "Supernatural Aid",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
+     "name": "Threshold",
+     "function": "What this stage asks of the book.",
+     "status": "light",
      "chapters": [],
-     "note": "Not assessed yet.",
+     "note": "",
      "evidence": []
     },
     {
      "id": 4,
-     "name": "Crossing the First Threshold",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
+     "name": "Trial",
+     "function": "What this stage asks of the book.",
+     "status": "light",
      "chapters": [],
-     "note": "Not assessed yet.",
+     "note": "",
      "evidence": []
     },
     {
      "id": 5,
-     "name": "Belly of the Whale",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
+     "name": "Awakening",
+     "function": "What this stage asks of the book.",
+     "status": "light",
      "chapters": [],
-     "note": "Not assessed yet.",
+     "note": "",
      "evidence": []
     },
     {
      "id": 6,
-     "name": "Road of Trials",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 7,
-     "name": "Meeting with the Goddess",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 8,
-     "name": "Temptation",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 9,
-     "name": "Atonement with the Father",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 10,
-     "name": "Apotheosis",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 11,
-     "name": "The Ultimate Boon",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 12,
-     "name": "Refusal of the Return",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 13,
-     "name": "The Magic Flight",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 14,
-     "name": "Rescue from Without",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 15,
-     "name": "Crossing the Return Threshold",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 16,
-     "name": "Master of Two Worlds",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 17,
-     "name": "Freedom to Live",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    }
-   ],
-   "vogler": [
-    {
-     "id": 1,
-     "name": "Ordinary World",
-     "function": "What this stage does in the book.",
-     "status": "green",
-     "assessment": "present",
-     "chapters": [
-      "c1"
-     ],
-     "note": "Works in the sections read.",
-     "evidence": [
-      {
-       "chapter": "c1",
-       "paragraph": 1,
-       "quote": "The letter arrived on Tuesday."
-      }
-     ]
-    },
-    {
-     "id": 2,
-     "name": "Call to Adventure",
-     "function": "What this stage does in the book.",
-     "status": "green",
-     "assessment": "present",
-     "chapters": [
-      "c1"
-     ],
-     "note": "Works in the sections read.",
-     "evidence": [
-      {
-       "chapter": "c1",
-       "paragraph": 1,
-       "quote": "The letter arrived on Tuesday."
-      }
-     ]
-    },
-    {
-     "id": 3,
-     "name": "Refusal of the Call",
-     "function": "What this stage does in the book.",
-     "status": "green",
-     "assessment": "present",
-     "chapters": [
-      "c1"
-     ],
-     "note": "Works in the sections read.",
-     "evidence": [
-      {
-       "chapter": "c1",
-       "paragraph": 1,
-       "quote": "The letter arrived on Tuesday."
-      }
-     ]
-    },
-    {
-     "id": 4,
-     "name": "Meeting the Mentor",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 5,
-     "name": "Crossing the Threshold",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 6,
-     "name": "Tests, Allies, Enemies",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 7,
-     "name": "Approach to the Inmost Cave",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 8,
-     "name": "The Ordeal",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 9,
      "name": "Reward",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
+     "function": "What this stage asks of the book.",
+     "status": "light",
      "chapters": [],
-     "note": "Not assessed yet.",
+     "note": "",
      "evidence": []
     },
     {
-     "id": 10,
-     "name": "The Road Back",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
+     "id": 7,
+     "name": "Return",
+     "function": "What this stage asks of the book.",
+     "status": "light",
      "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 11,
-     "name": "Resurrection",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
-     "evidence": []
-    },
-    {
-     "id": 12,
-     "name": "Return with the Elixir",
-     "function": "What this stage does in the book.",
-     "status": "gray",
-     "assessment": "unassessed",
-     "chapters": [],
-     "note": "Not assessed yet.",
+     "note": "",
      "evidence": []
     }
    ]
@@ -535,20 +267,10 @@
  },
  "labels": {
   "status": {
-   "green": "Working",
-   "yellow": "Needs review",
-   "red": "Missing",
-   "gray": "Not assessed"
-  },
-  "assessment": {
-   "present": "Present",
-   "implicit": "Implicit",
-   "different": "Deliberately different",
-   "revision": "Needs revision",
-   "missing": "Function missing",
-   "not_written": "Not written yet",
-   "draft": "Draft or note",
-   "unassessed": "Not assessed"
+   "green": "Clear",
+   "yellow": "Implicit",
+   "gray": "Absent",
+   "light": "Not written or not read"
   },
   "kinds": {
    "prose": "Prose",
@@ -572,12 +294,18 @@
   "roles": {
    "editor": "Developmental Editor",
    "reader": "Beta Reader Panel"
+  },
+  "review": {
+   "green": "Reviewed",
+   "yellow": "Worth a look",
+   "gray": "Not read"
   }
  },
  "colors": {
   "green": "#2B8064",
   "yellow": "#EDBB4A",
   "red": "#C65D56",
-  "gray": "#ADB4B1"
+  "gray": "#ADB4B1",
+  "light": "#E4E6E1"
  }
 }

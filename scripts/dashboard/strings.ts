@@ -31,6 +31,7 @@ export function dataStrings(data: unknown): string[] {
     method?: unknown;
     analysis?: {
       maps?: Record<string, { name: string; function: string }[]>;
+      stages_localized?: boolean;
       modules?: { findings?: { label: string }[] }[];
       decisions?: { label: string }[];
     };
@@ -39,7 +40,11 @@ export function dataStrings(data: unknown): string[] {
   return [
     ...values(d.labels),
     ...values(d.method),
-    ...Object.values(a.maps ?? {}).flatMap((stages) => stages.flatMap((s) => [s.name, s.function])),
+    ...(a.stages_localized
+      ? []
+      : Object.values(a.maps ?? {}).flatMap((stages) =>
+          stages.flatMap((s) => [s.name, s.function]),
+        )),
     ...(a.modules ?? []).flatMap((m) => (m.findings ?? []).map((f) => f.label)),
     ...(a.decisions ?? []).map((x) => x.label),
   ];

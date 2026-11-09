@@ -19,6 +19,10 @@ Then open Claude in your book's folder and run `/masthead:review your-book.docx 
 
 Part of [Publishify](https://publishify.app).
 
+## The model
+
+The dashboard maps a book onto [The Wayfarer's Seven Stages](docs/wayfarers-seven-stages.tr.md) (in Turkish).
+
 ## License
 
 MIT with the Commons Clause: you may use, modify and share this plugin, but you may not sell it. See [LICENSE](LICENSE).
