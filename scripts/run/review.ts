@@ -4,6 +4,8 @@ export type Step = {
   step_id: string;
   role: string;
   unit: number | null;
+  /** Set when the plan covers only part of the book. */
+  units?: number[];
   instructions?: string;
   max_notes_per_part?: number;
 };
@@ -19,7 +21,8 @@ export type Reply = {
   rejections?: Rejection[];
   next?: Reply;
 };
-type Dashboard = { analysis?: { decisions?: { text: string }[] } };
+type Limited = { read_words: number; total_words: number };
+type Dashboard = { analysis?: { decisions?: { text: string }[]; limited?: Limited } };
 type Note = Record<string, unknown> & { paragraph?: number; wrong?: string };
 type RoleOutput = { summary?: unknown; notes?: Note[]; stages?: unknown[] };
 
@@ -27,9 +30,9 @@ export type ReviewDeps = {
   callTool(name: string, args: object): Promise<Reply>;
   ask(prompt: string, role: string): Promise<{ text: string; costUsd: number }>;
   prepare(file: string, genre: string): Promise<PreparedBook>;
-  measureAll(): unknown[];
+  measureAll(units?: number[]): unknown[];
   sectionText(unit: number): string;
-  bookContext(role: string): string;
+  bookContext(role: string, units?: number[]): string;
   saveSummary(unit: number, summary: unknown): void;
   checkNotes(output: RoleOutput, unit?: number): Promise<{ notes: Note[]; stages: unknown[] }>;
   spellingNotes(unit: number, language: string): Note[];
@@ -78,7 +81,9 @@ export async function runReview(
   deps.saveBookId(bookId);
 
   const promptFor = (step: Step, feedback: string) => {
-    const source = step.unit ? deps.sectionText(step.unit) : deps.bookContext(step.role);
+    const source = step.unit
+      ? deps.sectionText(step.unit)
+      : deps.bookContext(step.role, step.units);
     return `${step.instructions}\n# Text\n\n${source}${feedback}`;
   };
 
@@ -129,7 +134,7 @@ export async function runReview(
     deps.log(`${step.role}${step.unit ? ` ${step.unit}` : ""}`);
     let reply: Reply;
     if (step.role === "measure") {
-      reply = await send(step, { measurements: deps.measureAll() });
+      reply = await send(step, { measurements: deps.measureAll(step.units) });
     } else {
       const output = await readWithModel(step, feedback);
       if (step.unit && output.summary !== undefined) deps.saveSummary(step.unit, output.summary);
@@ -170,6 +175,7 @@ export async function runReview(
     seconds: Math.round((Date.now() - started) / 1000),
     breakdown,
     incomplete,
+    limited: report.dashboard.analysis?.limited ?? null,
     translation_usd: Math.round(done.costUsd * 1000) / 1000,
     decisions: (report.dashboard.analysis?.decisions ?? []).map((d) => d.text),
   };

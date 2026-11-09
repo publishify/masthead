@@ -8,7 +8,7 @@
       "name": "masthead",
       "source": "./",
       "description": "Give your book an AI editorial board: notes backed by quotes from your own text, a check for contradictions in age, date and place, simulated reader reactions, and a visual report showing where your book stands on The Wayfarer's Seven Stages. Publishify never receives your full text, and the board never changes it.",
-      "version": "0.1.2",
+      "version": "0.1.3",
       "category": "productivity",
       "homepage": "https://publishify.app/masthead/",
       "keywords": [

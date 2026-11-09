@@ -181,8 +181,13 @@ const numbered = (unit: number) =>
     .join("\n\n");
 const summaryPath = (unit: number) => join(WORK_DIR, "summaries", `${unit}.json`);
 
-function bookContext(role: string) {
+function coveredUnits(scope?: number[]) {
   const { units } = readManifest();
+  return scope ? units.filter((u) => scope.includes(u.no)) : units;
+}
+
+function bookContext(role: string, scope?: number[]) {
+  const units = coveredUnits(scope);
   const summarized = units.filter((u) => existsSync(summaryPath(u.no)));
   const summaries = summarized
     .map((u) => `## Section ${u.no}\n${readFileSync(summaryPath(u.no), "utf-8")}`)
@@ -238,8 +243,8 @@ function reviewDeps(): ReviewDeps {
     callTool,
     ask: (prompt, role) => askModel(prompt, process.env.MASTHEAD_MODEL || ROLE_MODEL[role]),
     prepare,
-    measureAll: () =>
-      readManifest().units.map((u) => ({
+    measureAll: (scope) =>
+      coveredUnits(scope).map((u) => ({
         no: u.no,
         ...measure(readFileSync(unitPath(u.no), "utf-8")),
       })),

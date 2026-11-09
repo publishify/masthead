@@ -10,7 +10,7 @@
 
 Masthead reads your book the way a publishing house staff would, gives notes backed by quotes from your text, and shows the result on a visual dashboard. It never changes your text and never passes a verdict: the decisions stay yours.
 
-> **Early access.** Masthead needs a licence. Write to info@publishify.app to request one.
+> **Free to try.** Every month you can review the first 10,000 words of a book at no charge. For a larger plan, write to info@publishify.app.
 
 Install guide: [English](docs/install.md) · [Türkçe](docs/install.tr.md)
 
@@ -34,10 +34,10 @@ The AI that reads your book runs on your own Claude account. Your full text and 
 
 - **On your computer:** a Node.js script (`scripts/bin/masthead.mjs`) reads your book, runs the review and draws the dashboard. It calls the `claude` command for each reading, with all tools turned off.
 - **Files it writes:** a `.masthead` folder and `masthead-dashboard.html` next to your book, and your sign-in and interface translations in `~/.config/masthead`.
-- **The Masthead server (`mcp.publishify.app`):** handles Google sign-in and your licence, gives the reading instructions step by step, and receives editorial notes, quotes of up to 25 words, counts, and your book's title and section details. It never receives your full text.
+- **The Masthead server (`mcp.publishify.app`):** handles Google sign-in and your plan, gives the reading instructions step by step, and receives editorial notes, quotes of up to 25 words, counts, and your book's title and section details. It never receives your full text.
 - **Your browser:** opens once for sign-in, and opens the finished report.
 
-The licence is linked to the email address of your Google account.
+Your plan is linked to the email address of your Google account.
 
 ## Install, step by step
 
@@ -48,7 +48,7 @@ No programming needed. You will paste a few lines and press Enter.
 - A paid [Claude](https://claude.com/pricing) account
 - [Claude Code](https://claude.com/claude-code): follow the install steps on that page
 - [Node.js](https://nodejs.org): download the version marked LTS and install it like any other app
-- A Masthead licence, linked to the email of your Google account
+- A Google account, to sign in
 
 ### 2. Open Terminal
 
@@ -83,7 +83,7 @@ Choose **Install for you**. Then type `/exit`, run `claude` again, and Masthead 
 /masthead:review my-book.docx novel
 ```
 
-Use your own file name. The first time, a browser opens: choose **Continue with Google** and sign in with the account that holds your licence.
+Use your own file name. The first time, a browser opens: choose **Continue with Google** and sign in with your Google account.
 
 When the review is done, the report opens by itself. It is saved in the same folder as `masthead-dashboard.html`. To see it again later:
 
@@ -97,13 +97,13 @@ When the review is done, the report opens by itself. It is saved in the same fol
 
 ## If something goes wrong
 
-| What you see                              | What to do                                                                          |
-| ----------------------------------------- | ----------------------------------------------------------------------------------- |
-| `claude: command not found`               | Install Claude Code, then close and reopen Terminal                                 |
-| `node: command not found`                 | Install Node.js, then close and reopen Terminal                                     |
-| It says there is no access (`NO_LICENSE`) | Sign in with the Google account that holds your licence, or request one             |
-| It cannot find your file                  | Make sure Claude was started in your book's folder                                  |
-| It stops at your usage limit              | Wait until the limit resets and run the same command; finished work is not repeated |
+| What you see                                    | What to do                                                                                   |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `claude: command not found`                     | Install Claude Code, then close and reopen Terminal                                          |
+| `node: command not found`                       | Install Node.js, then close and reopen Terminal                                              |
+| It says the allowance is used up (`PLAN_LIMIT`) | Your words renew on the first of next month. For a larger plan, write to info@publishify.app |
+| It cannot find your file                        | Make sure Claude was started in your book's folder                                           |
+| It stops at your usage limit                    | Wait until the limit resets and run the same command; finished work is not repeated          |
 
 ## Update or remove
 

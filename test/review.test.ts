@@ -65,6 +65,35 @@ const report: Reply = {
 const input = { file: "a.md", genre: "novel", title: "A" };
 
 describe("review script", () => {
+  it("reads only the sections a plan covers", async () => {
+    const seen: unknown[] = [];
+    const steps = [
+      { job_id: "j", step_id: "s1", role: "measure", unit: null, units: [1] },
+      { job_id: "j", step_id: "s2", role: "auditor", unit: null, units: [1], instructions: "x" },
+    ];
+    const limited = { read_words: 6, total_words: 18 };
+    const script: Record<string, Reply> = {
+      save_book: { book_id: "b" },
+      next_step: { steps },
+      s2: {
+        outcome: "accepted",
+        next: { report_ready: true, dashboard: { analysis: { limited } } },
+      },
+    };
+    const fake = fakeDeps(script, "{}");
+    fake.deps.measureAll = (units) => {
+      seen.push(units);
+      return [];
+    };
+    fake.deps.bookContext = (_role, units) => {
+      seen.push(units);
+      return "";
+    };
+    const result = await runReview(input, fake.deps);
+    expect(seen).toEqual([[1], [1]]);
+    expect(result.limited).toEqual(limited);
+  });
+
   it("runs a job with no model in charge and keeps summaries local", async () => {
     const script: Record<string, Reply> = {
       save_book: { book_id: "b" },
@@ -135,9 +164,9 @@ describe("review script", () => {
   it("stops at once without a licence", async () => {
     const script: Record<string, Reply> = {
       save_book: { book_id: "b" },
-      next_step: { error: "NO_LICENSE" },
+      next_step: { error: "PLAN_LIMIT" },
     };
-    await expect(runReview(input, fakeDeps(script, "{}").deps)).rejects.toThrow("NO_LICENSE");
+    await expect(runReview(input, fakeDeps(script, "{}").deps)).rejects.toThrow("PLAN_LIMIT");
   });
 });
 

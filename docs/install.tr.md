@@ -2,14 +2,14 @@
 
 Masthead, kitabını bir yayınevi kadrosu gibi okuyan yapay zekâ yayın kuruludur. Kurmak için programlama bilmen gerekmez; birkaç satır yapıştırıp Enter'a basacaksın.
 
-> **Erken erişim:** Masthead için lisans gerekir. İstemek için info@publishify.app adresine yaz.
+> **Ücretsiz dene:** Her ay bir kitabının ilk 10.000 kelimesini ücretsiz inceletebilirsin. Daha büyük bir plan için info@publishify.app adresine yaz.
 
 ## 1. Gerekenler
 
 - Ücretli bir [Claude](https://claude.com/pricing) hesabı
 - [Claude Code](https://claude.com/claude-code): sayfadaki kurulum adımlarını izle
 - [Node.js](https://nodejs.org): LTS yazan sürümü indir, normal bir uygulama gibi kur
-- Google hesabının e-postasına tanımlı bir Masthead lisansı
+- Giriş için bir Google hesabı
 
 ## 2. Terminal'i aç
 
@@ -44,7 +44,7 @@ Claude'un içinde şunları tek tek yapıştır, her birinden sonra Enter'a bas:
 /masthead:review kitabim.docx novel
 ```
 
-Dosya adını kendi kitabınla değiştir. İlk seferde tarayıcı açılır: **Continue with Google**'a bas ve lisansının olduğu hesapla gir.
+Dosya adını kendi kitabınla değiştir. İlk seferde tarayıcı açılır: **Continue with Google**'a bas ve Google hesabınla gir.
 
 İnceleme bitince rapor kendiliğinden açılır; aynı klasörde `masthead-dashboard.html` olarak durur. Sonra yeniden görmek için:
 
@@ -62,7 +62,7 @@ Dosya adını kendi kitabınla değiştir. İlk seferde tarayıcı açılır: **
 |---|---|
 | `claude: command not found` | Claude Code'u kur, Terminal'i kapatıp yeniden aç |
 | `node: command not found` | Node.js'i kur, Terminal'i kapatıp yeniden aç |
-| Erişim yok diyor (`NO_LICENSE`) | Lisansın olduğu Google hesabıyla gir ya da lisans iste |
+| Hakkın bitti diyor (`PLAN_LIMIT`) | Kelimelerin gelecek ayın ilk günü yenilenir. Daha büyük bir plan için info@publishify.app adresine yaz |
 | Dosyayı bulamıyor | Claude'u kitabın olduğu klasörde başlattığından emin ol |
 | Kullanım sınırında duruyor | Sınır yenilenince aynı komutu çalıştır; biten iş tekrarlanmaz |
 
