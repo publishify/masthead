@@ -102,4 +102,37 @@ describe("check command", () => {
     expect(notes[3].verification).toBeUndefined();
     expect(stages).toHaveLength(1);
   });
+
+  it("finds the section itself for book-level notes", () => {
+    const dir = mkdtempSync(join(tmpdir(), "masthead-"));
+    writeFileSync(join(dir, "book.md"), "The door opened.\n\nHe waited for hours.\n");
+    run(["prepare", "book.md", "--genre", "short-story"], dir);
+    mkdirSync(join(dir, ".masthead/out"), { recursive: true });
+    writeFileSync(
+      join(dir, ".masthead/out/b.json"),
+      JSON.stringify({
+        notes: [
+          {
+            type: "continuity.time",
+            check: "objective",
+            result: "fail",
+            quote: "He waited",
+            evidence: [{ quote: "The door opened." }],
+          },
+        ],
+      }),
+    );
+    const [note] = run(["check", ".masthead/out/b.json"], dir).notes;
+    expect(note.unit).toBe(1);
+    expect(note.evidence[0].unit).toBe(1);
+    expect(note.verification.method).toBe("script");
+  });
+
+  it("recognises the language of a manuscript", () => {
+    const dir = mkdtempSync(join(tmpdir(), "masthead-"));
+    writeFileSync(join(dir, "en.md"), "The man and the dog went to the sea with his son.\n");
+    writeFileSync(join(dir, "tr.md"), "Bu bir kitap ve çok güzel bir kitap gibi ama değil.\n");
+    expect(run(["prepare", "en.md", "--genre", "other"], dir).language).toBe("en");
+    expect(run(["prepare", "tr.md", "--genre", "other"], dir).language).toBe("tr");
+  });
 });

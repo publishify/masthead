@@ -3,6 +3,7 @@ import { paragraphs, words } from "./canonical";
 export type Measurement = {
   words: number;
   sentences: number;
+  long_sentences: number;
   paragraphs: number;
   dialogue_ratio: number;
   frequent_words: { word: string; count: number }[];
@@ -16,7 +17,7 @@ const FUNCTION_WORDS = new Set(
   ),
 );
 const lower = (s: string) => s.toLocaleLowerCase("tr");
-const DIALOGUE = /^["“«‘'—–-]/u;
+const DIALOGUE = /^["“«‘'—–-]|["“«].+?["”»]/u;
 
 const tally = (items: Iterable<string>) => {
   const counts = new Map<string, number>();
@@ -27,6 +28,7 @@ const tally = (items: Iterable<string>) => {
 /** Measured entirely by code. Repetition candidates are counts, not errors. */
 export function measure(text: string): Measurement {
   const ps = paragraphs(text);
+  const sentences = text.split(/[.!?…]+(?=\s|$)/u).filter((s) => words(s).length > 0);
   const all = words(text).map(lower);
   const content = all.filter((w) => w.length > 2 && !FUNCTION_WORDS.has(w));
   const frequent = [...tally(content)]
@@ -53,7 +55,8 @@ export function measure(text: string): Measurement {
 
   return {
     words: all.length,
-    sentences: text.split(/[.!?…]+(?=\s|$)/u).filter((s) => words(s).length > 0).length,
+    sentences: sentences.length,
+    long_sentences: sentences.filter((s) => words(s).length > 35).length,
     paragraphs: ps.length,
     dialogue_ratio: ps.length ? ps.filter((p) => DIALOGUE.test(p)).length / ps.length : 0,
     frequent_words: frequent,

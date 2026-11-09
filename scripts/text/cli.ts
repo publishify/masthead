@@ -7,6 +7,7 @@ import { catalog, cleanStrings, normalizeLang, type Strings } from "../dashboard
 import template from "../dashboard/template.html";
 import { bookHash, hash, paragraphs } from "./canonical";
 import { readFile, TextError } from "./formats";
+import { detectLanguage } from "./language";
 import { measure } from "./measure";
 import { findQuote } from "./quote";
 import { split } from "./split";
@@ -57,7 +58,7 @@ async function prepare(file: string, genre: Genre) {
     units: list,
   };
   writeFileSync(join(WORK_DIR, "manifest.json"), JSON.stringify(manifest));
-  print({ ...manifest, confidence });
+  print({ manifest, confidence, language: detectLanguage(raw.text) });
 }
 
 async function verify(file: string) {
@@ -74,32 +75,47 @@ type Place = { unit?: number; quote?: string };
 type RoleNote = Place & { evidence?: Place[]; [key: string]: unknown };
 
 /** A note is proven only when every quote it relies on is found in the book. */
-function checkNotes(file: string, defaultUnit?: number) {
+async function checkNotes(file: string, defaultUnit?: number) {
   const output = JSON.parse(readFileSync(file, "utf-8")) as {
     notes?: RoleNote[];
     stages?: Place[];
   };
+  const units = readManifest().units.map((u) => u.no);
   const textOf = (unit: number) => readFileSync(unitPath(unit), "utf-8");
-  const found = (place: Place) => {
-    const unit = place.unit ?? defaultUnit;
-    if (!unit || !place.quote || !existsSync(unitPath(unit))) return false;
-    const status = findQuote(textOf(unit), place.quote).status;
+  const matches = (unit: number, quote: string) => {
+    if (!existsSync(unitPath(unit))) return false;
+    const { status } = findQuote(textOf(unit), quote);
     return status === "found" || status === "ambiguous";
   };
-  return Promise.all(
+  /** Book-level roles may not name a section, so every section is searched. */
+  const locate = (place: Place) => {
+    const known = place.unit ?? defaultUnit;
+    if (known || !place.quote) return known;
+    return units.find((unit) => matches(unit, place.quote as string));
+  };
+  const found = (place: Place, unit?: number) =>
+    Boolean(unit && place.quote && matches(unit, place.quote));
+
+  const notes = await Promise.all(
     (output.notes ?? []).map(async (note) => {
-      const unit = note.unit ?? defaultUnit;
+      const unit = locate(note);
       const located = unit ? { unit } : {};
       if (!note.quote) return { ...note, ...located };
-      const proven = found(note) && (note.evidence ?? []).every(found);
+      const evidence = (note.evidence ?? []).map((place) => {
+        const at = locate(place);
+        return { place: { ...place, ...(at ? { unit: at } : {}) }, proven: found(place, at) };
+      });
+      const proven = found(note, unit) && evidence.every((e) => e.proven);
       return {
         ...note,
         ...located,
+        ...(note.evidence ? { evidence: evidence.map((e) => e.place) } : {}),
         ...(unit && existsSync(unitPath(unit)) ? { unit_hash: await hash(textOf(unit)) } : {}),
         verification: proven ? { method: "script", verified_by: "text-tool" } : { method: "model" },
       };
     }),
-  ).then((notes) => ({ notes, stages: output.stages ?? [] }));
+  );
+  return { notes, stages: output.stages ?? [] };
 }
 
 async function main([command, ...args]: string[]) {
