@@ -1,0 +1,11 @@
+{
+  "name": "publishify",
+  "owner": { "name": "Publishify" },
+  "plugins": [
+    {
+      "name": "masthead",
+      "source": "./",
+      "description": "Publishify Masthead: your AI editorial board."
+    }
+  ]
+}

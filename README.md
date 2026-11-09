@@ -6,6 +6,17 @@
 
 > Early development. Not ready for use yet.
 
+## Install
+
+In Claude Code:
+
+```
+/plugin marketplace add publishify/masthead-plugin
+/plugin install masthead@publishify
+```
+
+Then open Claude in your book's folder and run `/masthead:review your-book.docx novel`. A browser opens once for sign-in.
+
 Part of [Publishify](https://publishify.app).
 
 ## License
